@@ -802,7 +802,7 @@ textarea {
 footer {
     background-color: var(--secondary-color);
     color: white;
-    padding-top: 0;
+    padding-top: 80px;
     position: relative;
 }
 
@@ -837,6 +837,10 @@ footer:before {
     flex: 2;
     display: flex;
     gap: 40px;
+}
+
+.schools-links, .applicant-navigation {
+    flex: 1;
 }
 
 .footer-second-row {
