@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shakarim University</title>
+    <link rel="stylesheet" href="abituriyentam.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- FullCalendar dependencies -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales/ru.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <!-- Верхний хедер -->
+        <div class="top-header">
+            <div class="container">
+                <div class="top-header-content">
+                    <div class="logo">
+                        <img src="logo.png" alt="Shakarim University 1934">
+                    </div>
+                    <button class="mobile-audience-btn">
+                        <i class="fas fa-bars"></i>
+                        <span>Аудитория</span>
+                    </button>
+                    <nav class="main-nav">
+                        <ul>
+                            <li><a href="#">Абитуриентам</a></li>
+                            <li><a href="#">Обучающимся</a></li>
+                            <li><a href="#">Выпускникам</a></li>
+                            <li><a href="#">Работодателям</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Нижний хедер -->
+        <div class="bottom-header">
+            <div class="container">
+                <div class="bottom-header-content">
+                    <div class="menu-container">
+                        <button class="menu-toggle">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        
+                        <!-- Многоуровневое меню -->
+                        <div class="mega-menu">
+                            <ul class="category">
+                                <!-- УНИВЕРСИТЕТ -->
+                                <li class="category-item has-children">
+                                    <a href="#" class="category-link">Университет</a>
+                                    <ul class="subcategories">
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Виртуальный тур</a></li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Об университете</a></li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">История университета</a></li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Шакарим Кудайбердыулы</a></li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Корпоративное управление</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Корпоративное управление</a></li>
+                                                <li class="subsubcategory"><a href="#">Корпоративные документы</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Руководители вузов</a></li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Совет ректоров Восточного региона</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Положение о совете ректоров вузов восточного региона</a></li>
+                                                <li class="subsubcategory"><a href="#">Состав совета ректоров вузов восточного региона</a></li>
+                                                <li class="subsubcategory"><a href="#">План работы Совета ректоров вузов Восточного региона в 2021 году</a></li>
+                                                <li class="subsubcategory"><a href="#">Обращение к научно-педагогической общественности и студенческой молодежи</a></li>
+                                                <li class="subsubcategory"><a href="#">Фотогалерея</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Ученый совет</a></li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Основополагающие документы</a></li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Награды</a></li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Профсоюзная организация</a></li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Система внутреннего обеспечения качества</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Политика и стандарты системы внутреннего обеспечения качества</a></li>
+                                                <li class="subsubcategory"><a href="#">Рабочая группа по качеству</a></li>
+                                                <li class="subsubcategory"><a href="#">Материалы социологических исследовании</a></li>
+                                                <li class="subsubcategory"><a href="#">Планы и отчеты</a></li>
+                                                <li class="subsubcategory"><a href="#">Комиссия по академическому качеству</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Государственные закупки</a></li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Университет без коррупции</a></li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Устойчивое развитие</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Цели устойчивого развития</a></li>
+                                                <li class="subsubcategory"><a href="#">Образование для устойчивого развития</a></li>
+                                                <li class="subsubcategory"><a href="#">Документы</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Организация ветеранов</a></li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Контакты и реквизиты</a></li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Вакансии</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Вакансии</a></li>
+                                                <li class="subsubcategory"><a href="#">Вакансии(Архив)</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Общественный фонд «Шәкәрім шапағаты»</a></li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Структура университета</a></li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Shakarim High School</a></li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">График приема</a></li>
+                                    </ul>
+                                </li>
+                                
+                                <!-- ОБРАЗОВАНИЕ -->
+                                <li class="category-item has-children">
+                                    <a href="#" class="category-link">Образование</a>
+                                    <ul class="subcategories">
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Нормативно-правовая база</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Внешние нормативные документы</a></li>
+                                                <li class="subsubcategory"><a href="#">Внутренние нормативные документы</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Академическая политика</a></li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Академический совет Университета</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Положение об академическом совете</a></li>
+                                                <li class="subsubcategory"><a href="#">Состав Академического совета</a></li>
+                                                <li class="subsubcategory"><a href="#">План работы академического совета</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Образовательные программы высшего и послевузовского образования</a></li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">MOOC</a></li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Minor</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Дополнительная образовательная программа MInor</a></li>
+                                                <li class="subsubcategory"><a href="#">Положение о дополнительной образовательной программе(MInor)</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Профессиональная практика</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Положение о профессиональной практике</a></li>
+                                                <li class="subsubcategory"><a href="#">Базы профессиональной практики</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Дуальное обучение</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Положение об организации учебного процесса с элементами дуального обучения</a></li>
+                                                <li class="subsubcategory"><a href="#">Сотрудничество с организациями с элементами дуального обучения</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Полиязычное образование</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Положение об организации трехъязычного образования</a></li>
+                                                <li class="subsubcategory"><a href="#">Список преподавателей полиязычных групп</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Дистанционное образование</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Положение о дистанционном образовании</a></li>
+                                                <li class="subsubcategory"><a href="#">Ссылки на нормативные документы - ДОТ</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Внутренняя академическая мобильность</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Положение о внутренней академической мобильности</a></li>
+                                                <li class="subsubcategory"><a href="#">Список ВУЗов партнеров</a></li>
+                                                <li class="subsubcategory"><a href="#">Алгоритм</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Летний семестр</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Каталог летнего семестра</a></li>
+                                                <li class="subsubcategory"><a href="#">Летний семестр-положение</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Инклюзивное образование</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Ссылки на нормативные документы</a></li>
+                                                <li class="subsubcategory"><a href="#">Координатор</a></li>
+                                                <li class="subsubcategory"><a href="#">Дорожная карта по реализации инклюзивного образования на 2024-2025 гг</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Аккредитация и рейтинги</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Институциональная аккредитация</a></li>
+                                                <li class="subsubcategory"><a href="#">Специализированная аккредитация</a></li>
+                                                <li class="subsubcategory"><a href="#">Рейтинги</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Академический календарь</a></li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Курсы повышения квалификации и переподготовка</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Курсы повышения квалификации</a></li>
+                                                <li class="subsubcategory"><a href="#">Переподготовка</a></li>
+                                                <li class="subsubcategory"><a href="#">Серебряный университет</a></li>
+                                                <li class="subsubcategory"><a href="#">Записаться на курс</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Утвержденные формы дипломов собственного образца с описанием</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">2023-2024 учебный год</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
+                                <!-- НАУКА -->
+                                <li class="category-item has-children">
+                                    <a href="#" class="category-link">Наука</a>
+                                    <ul class="subcategories">
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Научно-исследовательские лаборатории и центры</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">НИЦ «Абай и национальная духовность»</a></li>
+                                                <li class="subsubcategory"><a href="#">НЦ "Радиоэкологических исследований" (НЦРЭИ)</a></li>
+                                                <li class="subsubcategory"><a href="#">НЦ «Агротехнопарк»</a></li>
+                                                <li class="subsubcategory"><a href="#">НЦ Педагогических исследований</a></li>
+                                                <li class="subsubcategory"><a href="#">НЦ Истории и археологии</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Shakarim Museum</a></li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Стартап проекты</a></li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Научные проекты</a></li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Закуп</a></li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Коммерциализация</a></li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Публикации ученых университета в рецензируемых международных базах данных</a></li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Научные издания</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Материалы конференций</a></li>
+                                                <li class="subsubcategory"><a href="#">Вестник Университета Шакарима. Серия технические науки</a></li>
+                                                <li class="subsubcategory"><a href="#">Вестник Университета Шакарима. Серия исторические науки</a></li>
+                                                <li class="subsubcategory"><a href="#">Вестник Университета Шакарима. Серия сельскохозяйственные и ветеринарные науки</a></li>
+                                                <li class="subsubcategory"><a href="#">Вестник Университета Шакарима. Серия филология</a></li>
+                                                <li class="subsubcategory"><a href="#">Вестник Университета Шакарим. Серия экономические науки</a></li>
+                                                <li class="subsubcategory"><a href="#">Shakarim Chemistry & Ecology</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Научные мероприятия</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">План научных мероприятий</a></li>
+                                                <li class="subsubcategory"><a href="#">Информация о научных мероприятиях</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Наши партнеры</a></li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Научно-технический совет</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Положение о научно-техническом совете</a></li>
+                                                <li class="subsubcategory"><a href="#">Состав научно-технического совета</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Научно-исследовательская работа обучающихся</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Основные направления деятельности</a></li>
+                                                <li class="subsubcategory"><a href="#">Научные конференции обучающихся</a></li>
+                                                <li class="subsubcategory"><a href="#">НИРС</a></li>
+                                                <li class="subsubcategory"><a href="#">Студенческие научные кружки</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Диссертационные советы</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Внешние нормативные документы о ДС</a></li>
+                                                <li class="subsubcategory"><a href="#">Положение о диссертационном совете</a></li>
+                                                <li class="subsubcategory"><a href="#">Этическая комиссия</a></li>
+                                                <li class="subsubcategory"><a href="#">Состав диссертационных советов</a></li>
+                                                <li class="subsubcategory"><a href="#">Информация о наличии лицензионной системы обнаружения заимствований</a></li>
+                                                <li class="subsubcategory"><a href="#">Материалы защиты диссертаций</a></li>
+                                                <li class="subsubcategory"><a href="#">Отчет диссертационного совета</a></li>
+                                                <li class="subsubcategory"><a href="#">Правила оформления диссертации на соискание степени доктора философии</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Соискатели ученых званий</a></li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Лучший преподаватель вуза</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Обладатели звания «Лучший преподаватель вуза»</a></li>
+                                                <li class="subsubcategory"><a href="#">Лучший преподаватель вуза – 2024</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Научное оборудование</a></li>
+                                    </ul>
+                                </li>
+                                
+                                <!-- МЕЖДУНАРОДНОЕ СОТРУДНИЧЕСТВО -->
+                                <li class="category-item has-children">
+                                    <a href="#" class="category-link">Международное сотрудничество</a>
+                                    <ul class="subcategories">
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Академическая мобильность</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Положение об академической мобильности</a></li>
+                                                <li class="subsubcategory"><a href="#">Академическая мобильность по гранту Министерства</a></li>
+                                                <li class="subsubcategory"><a href="#">Академическая мобильность за счет собственных средств</a></li>
+                                                <li class="subsubcategory"><a href="#">Университеты для мобильности</a></li>
+                                                <li class="subsubcategory"><a href="#">Визовая поддержка</a></li>
+                                                <li class="subsubcategory"><a href="#">Наши контакты</a></li>
+                                                <li class="subsubcategory"><a href="#">Часто задаваемые вопросы</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Программы двойного диплома</a></li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Зарубежные партнеры</a></li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Иностранным студентам</a></li>
+                                        <li class="subcategory"><a href="#" class="subcategory-link">Центр международного сотрудничества</a></li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Международные проекты</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Complete</a></li>
+                                                <li class="subsubcategory"><a href="#">DOCMEN</a></li>
+                                                <li class="subsubcategory"><a href="#">ERASMUS+ Mobility</a></li>
+                                                <li class="subsubcategory"><a href="#">KAZDUAL</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
+                                <!-- МОЛОДЕЖНАЯ ПОЛИТИКА -->
+                                <li class="category-item has-children">
+                                    <a href="#" class="category-link">Молодежная политика</a>
+                                    <ul class="subcategories">
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Общежития</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Описание общежития</a></li>
+                                                <li class="subsubcategory"><a href="#">Процедура заселения</a></li>
+                                                <li class="subsubcategory"><a href="#">Необходимые документы</a></li>
+                                                <li class="subsubcategory"><a href="#">Социальная помощь</a></li>
+                                                <li class="subsubcategory"><a href="#">Общежитие №1</a></li>
+                                                <li class="subsubcategory"><a href="#">Общежитие №2</a></li>
+                                                <li class="subsubcategory"><a href="#">Общежитие №3</a></li>
+                                                <li class="subsubcategory"><a href="#">Общежитие №4</a></li>
+                                                <li class="subsubcategory"><a href="#">Общежитие №5</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Студенческая жизнь</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Интеллектуальный центр "Шәкәрім жастары"</a></li>
+                                                <li class="subsubcategory"><a href="#">Студенческий парламент</a></li>
+                                                <li class="subsubcategory"><a href="#">Малый деканат</a></li>
+                                                <li class="subsubcategory"><a href="#">Студенческие организации</a></li>
+                                                <li class="subsubcategory"><a href="#">Фотогалерея</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="subcategory has-children">
+                                            <a href="#" class="subcategory-link">Top100</a>
+                                            <ul class="subsubcategories">
+                                                <li class="subsubcategory"><a href="#">Журнал 2021-2022</a></li>
+                                                <li class="subsubcategory"><a href="#">Журнал 2022-2023</a></li>
+                                                <li class="subsubcategory"><a href="#">Журнал 2023-2024</a></li>
+                                                <li class="subsubcategory"><a href="#">Текущий рейтинг 2024-2025</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="header-tools">
+                        <button class="visually-impaired-btn" title="Версия для слабовидящих">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <div class="search-container">
+                            <button class="search-btn" title="Поиск">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            <div class="search-form">
+                                <form>
+                                    <button type="submit"><i class="fas fa-search"></i></button>
+                                    <input type="text" placeholder="Поиск по сайту">
+                                </form>
+                            </div>
+                        </div>
+                        <a href="#" class="sitemap-btn">
+                            <i class="fas fa-sitemap"></i>
+                            <span>Карта сайта</span>
+                        </a>
+                        <div class="language-selector">
+                            <button class="lang-btn">RU</button>
+                            <div class="lang-dropdown">
+                                <a href="#" class="active">RU</a>
+                                <a href="#">KZ</a>
+                                <a href="#">EN</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <div class="custom-breadcrumb">
+        <span>Главная страница</span> <span class="breadcrumb-separator">/</span> <span>Абитуриентам</span>
+    </div>
+            
+    <!-- ЦЕНТРАЛЬНЫЙ БЛОК -->
+    <div class="content">
+        <!-- Секция приветствия -->
+        <section class="welcome-section">
+            <div class="welcome-container">
+                <div class="welcome-image">
+                    <img src="template.png" alt="Студенты Shakarim University" width="500" height="400">
+                </div>
+                <div class="welcome-text">
+                    <h1>Строй будущее <br>вместе с нами!</h1>
+                    <p>Университет Шакарима – это современное образование, признанное научное сообщество и передовые исследовательские центры. Мы готовим профессионалов, которые меняют мир к лучшему.</p>
+                    <a href="#apply" class="apply-button">Поступить</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Секция выбора уровня образования -->
+        <section class="education-level-section" id="apply">
+            <h2>Я хочу поступить в...</h2>
+            
+            <div class="education-options">
+                <div class="education-option" id="bachelor-option" data-target="bachelor-benefits">
+                    <div class="option-background" style="background-image: url('template.png');">
+                        <div class="option-overlay"></div>
+                        <h3>Бакалавриат</h3>
+                    </div>
+                </div>
+                
+                <div class="education-option" id="master-option" data-target="master-benefits">
+                    <div class="option-background" style="background-image: url('template.png');">
+                        <div class="option-overlay"></div>
+                        <h3>Магистратура</h3>
+                    </div>
+                </div>
+                
+                <div class="education-option" id="phd-option" data-target="phd-benefits">
+                    <div class="option-background" style="background-image: url('template.png');">
+                        <div class="option-overlay"></div>
+                        <h3>Докторантура</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Преимущества для бакалавриата -->
+            <div class="benefits-container" id="bachelor-benefits">
+                <h3>Преимущества бакалавриата</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <h4>4 года обучения</h4>
+                        <p>Продолжительность</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-diploma"></i></div>
+                        <h4>Диплом государственного образца</h4>
+                        <p>Да</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-user-shield"></i></div>
+                        <h4>Отсрочка от армии</h4>
+                        <p>Да</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-users"></i></div>
+                        <h4>Очная форма обучения</h4>
+                        <p>Форма обучения</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-building"></i></div>
+                        <h4>Общежития</h4>
+                        <p>Да</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-certificate"></i></div>
+                        <h4>Аккредитация ARQA</h4>
+                        <p>Независимое агентство по аккредитации</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-award"></i></div>
+                        <h4>Аккредитация IAAR</h4>
+                        <p>Независимое агентство аккредитации и рейтинга</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-globe-asia"></i></div>
+                        <h4>Аккредитация САААЕ</h4>
+                        <p>Центрально-Азиатская Ассоциация</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-university"></i></div>
+                        <h4>Возможность двойного диплома</h4>
+                        <p>Международное признание</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-handshake"></i></div>
+                        <h4>Международное сотрудничество</h4>
+                        <p>Глобальные партнерства</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-tree"></i></div>
+                        <h4>«Зелёный» рейтинг</h4>
+                        <p>Экологическая ответственность</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-industry"></i></div>
+                        <h4>Дуальная система обучения</h4>
+                        <p>KAZDUAL</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-flask"></i></div>
+                        <h4>Современные лаборатории</h4>
+                        <p>Обновленные корпуса</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-book"></i></div>
+                        <h4>Разнообразие программ</h4>
+                        <p>Более 40 направлений</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-exchange-alt"></i></div>
+                        <h4>Erasmus+ Mobility</h4>
+                        <p>Международные обмены</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-language"></i></div>
+                        <h4>Языковые сертификаты</h4>
+                        <p>Повышение квалификации</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Преимущества для магистратуры -->
+            <div class="benefits-container" id="master-benefits">
+                <h3>Преимущества магистратуры</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-th-list"></i></div>
+                        <h4>Широкий выбор программ</h4>
+                        <p>Многообразие направлений</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-brain"></i></div>
+                        <h4>Разнообразие областей знаний</h4>
+                        <p>Фундаментальные и прикладные науки</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-money-bill"></i></div>
+                        <h4>Бюджетные и платные места</h4>
+                        <p>176 бюджетных и 430 платных мест</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-tags"></i></div>
+                        <h4>Доступная стоимость обучения</h4>
+                        <p>Конкурентные цены</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+                        <h4>Конкурентные проходные баллы</h4>
+                        <p>88 на научно-педагогические</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-microscope"></i></div>
+                        <h4>Исследовательская направленность</h4>
+                        <p>Научный подход</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <h4>Подготовка преподавателей</h4>
+                        <p>Педагогика и психология</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-briefcase"></i></div>
+                        <h4>Партнёрские MBA-программы</h4>
+                        <p>Executive MBA и классическое MBA</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-globe"></i></div>
+                        <h4>Приём иностранных студентов</h4>
+                        <p>Международная среда</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-handshake"></i></div>
+                        <h4>Международные партнёрства</h4>
+                        <p>Программа "Менеджер спорта"</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-university"></i></div>
+                        <h4>Высшие школы</h4>
+                        <p>Исследовательские центры</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h4>Путь к PhD</h4>
+                        <p>Дальнейшее академическое развитие</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-clock"></i></div>
+                        <h4>Гибкие формы обучения</h4>
+                        <p>Очная, заочная и смешанная</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-exchange-alt"></i></div>
+                        <h4>Академическая мобильность</h4>
+                        <p>Возможность обмена опытом</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Преимущества для докторантуры -->
+            <div class="benefits-container" id="phd-benefits">
+                <h3>Преимущества докторантуры</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-book-open"></i></div>
+                        <h4>Широкий спектр программ PhD</h4>
+                        <p>Разнообразные направления</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-user-tie"></i></div>
+                        <h4>Высококвалифицированный состав</h4>
+                        <p>28 докторов наук и профессоров</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                        <h4>Государственный заказ</h4>
+                        <p>Бюджетные места и гранты</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-award"></i></div>
+                        <h4>До 25 целевых грантов</h4>
+                        <p>Для докторантов</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-tasks"></i></div>
+                        <h4>Структурированные испытания</h4>
+                        <p>Эссе, тест и профильный экзамен</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-list-ol"></i></div>
+                        <h4>Чёткий перечень тем</h4>
+                        <p>Публикация всех требований</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-flask"></i></div>
+                        <h4>Современные лаборатории</h4>
+                        <p>Научно-исследовательская база</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-book"></i></div>
+                        <h4>Виртуальные читальные залы</h4>
+                        <p>Доступ к информации</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-globe"></i></div>
+                        <h4>Поддержка иностранных абитуриентов</h4>
+                        <p>Международное сотрудничество</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-clipboard-check"></i></div>
+                        <h4>Пререквизиты для поступления</h4>
+                        <p>Степень магистра и 9 месяцев стажа</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-user-graduate"></i></div>
+                        <h4>Перспектива академической карьеры</h4>
+                        <p>Путь к должности доцента и профессора</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Секция "Как поступить" (карта сокровищ) -->
+        <section class="apply-map-section">
+            <h2>Как поступить в Университет Шакарима</h2>
+            
+            <div class="treasure-map-container">
+                <div class="treasure-map">
+                    <img src="template.png" alt="Карта поступления" class="map-background" width="1000" height="600">
+                    
+                    <!-- Шаги поступления -->
+                    <div class="map-step" id="step-1">
+                        <div class="step-marker">1</div>
+                        <div class="step-content">
+                            <h3>Выбери программу</h3>
+                            <p>Изучи все направления обучения и выбери программу, которая тебе подходит</p>
+                        </div>
+                    </div>
+                    
+                    <div class="map-step" id="step-2">
+                        <div class="step-marker">2</div>
+                        <div class="step-content">
+                            <h3>Подготовь документы</h3>
+                            <p>Удостоверение личности, аттестат, сертификат ЕНТ и другие необходимые документы</p>
+                        </div>
+                    </div>
+                    
+                    <div class="map-step" id="step-3">
+                        <div class="step-marker">3</div>
+                        <div class="step-content">
+                            <h3>Подай заявление</h3>
+                            <p>Онлайн на сайте университета или лично в приемной комиссии</p>
+                        </div>
+                    </div>
+                    
+                    <div class="map-step" id="step-4">
+                        <div class="step-marker">4</div>
+                        <div class="step-content">
+                            <h3>Участвуй в конкурсе</h3>
+                            <p>Дождись результатов конкурса на присуждение грантов или зачисления на платное обучение</p>
+                        </div>
+                    </div>
+                    
+                    <div class="map-step" id="step-5">
+                        <div class="step-marker">5</div>
+                        <div class="step-content">
+                            <h3>Получи приказ о зачислении</h3>
+                            <p>После успешного прохождения конкурса ты получишь приказ о зачислении</p>
+                        </div>
+                    </div>
+                    
+                    <div class="map-step treasure-chest" id="step-6">
+                        <div class="step-marker"><i class="fas fa-award"></i></div>
+                        <div class="step-content">
+                            <h3>Поздравляем!</h3>
+                            <p>Теперь ты студент Университета Шакарима!</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Линии соединения между шагами -->
+                    <div class="map-path"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Секция "Что еще интересного?" -->
+        <section class="interesting-section">
+            <h2>Что еще интересного?</h2>
+            
+            <div class="interesting-items">
+                <div class="interesting-row">
+                    <div class="interesting-item">
+                        <div class="interesting-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>Современные лаборатории</h3>
+                        <p>Оснащенные передовым оборудованием для проведения исследований и практических занятий</p>
+                    </div>
+                    
+                    <div class="interesting-item">
+                        <div class="interesting-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <h3>Тренажерный зал</h3>
+                        <p>Современное спортивное пространство для поддержания здорового образа жизни студентов</p>
+                    </div>
+                    
+                    <div class="interesting-item">
+                        <div class="interesting-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Коворкинг</h3>
+                        <p>Комфортное пространство для совместной работы, учебы и творческих проектов</p>
+                    </div>
+                </div>
+                
+                <div class="interesting-row">
+                    <div class="interesting-item">
+                        <div class="interesting-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Обширная научная библиотека</h3>
+                        <p>Богатый фонд учебной и научной литературы, электронные ресурсы и базы данных</p>
+                    </div>
+                    
+                    <div class="interesting-item">
+                        <div class="interesting-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Несколько учебных корпусов</h3>
+                        <p>Современные аудитории и специализированные учебные пространства для комфортного обучения</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Секция "Популярные вопросы" -->
+        <section class="popular-questions-section">
+            <h2>Топ популярных вопросов</h2>
+            
+            <div class="questions-container">
+                <div class="questions-grid">
+                    <a href="#" class="question-button">
+                        <span>Стоимость обучения</span>
+                    </a>
+                    
+                    <a href="#" class="question-button">
+                        <span>Дистанционное обучение</span>
+                    </a>
+                    
+                    <a href="#" class="question-button">
+                        <span>Стипендии, гранты и квоты</span>
+                    </a>
+                    
+                    <a href="#" class="question-button">
+                        <span>Студенческая жизнь</span>
+                    </a>
+                    
+                    <a href="#" class="question-button">
+                        <span>Военная кафедра</span>
+                    </a>
+                    
+                    <a href="#" class="question-button">
+                        <span>Условное зачисление</span>
+                    </a>
+                    
+                    <a href="#" class="question-button">
+                        <span>FOUNDATION</span>
+                    </a>
+                    
+                    <a href="#" class="question-button">
+                        <span>Творческий экзамен</span>
+                    </a>
+                    
+                    <a href="#" class="question-button wide-button">
+                        <span>Общежития</span>
+                    </a>
+                </div>
+                
+                <div class="ask-question-block">
+                    <div class="illustration">
+                        <img src="template.png" alt="Студент с подзорной трубой" width="500" height="400">
+                    </div>
+                    
+                    <div class="question-form">
+                        <p>Остались вопросы?</p>
+                        <a href="#" class="ask-button">Задать вопрос</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Секция с мероприятиями и календарем -->
+        <section class="events-section">
+            <h2>Мероприятия для абитуриентов</h2>
+            
+            <div class="events-container">
+                <div class="calendar-block">
+                    <div class="calendar-header">
+                        <button id="prevMonth" class="calendar-nav-btn"><i class="fas fa-chevron-left"></i></button>
+                        <h3 id="currentMonth">Август 2024</h3>
+                        <button id="nextMonth" class="calendar-nav-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    
+                    <div id="calendar" class="calendar-widget"></div>
+                </div>
+                
+                <div class="upcoming-events">
+                    <h3>Ближайшие события</h3>
+                    
+                    <div class="event-cards">
+                        <div class="event-card">
+                            <div class="event-date">
+                                <span class="date-day">15</span>
+                                <span class="date-month">авг</span>
+                            </div>
+                            <div class="event-info">
+                                <h4>День открытых дверей</h4>
+                                <p>Главный корпус, 10:00 - 14:00</p>
+                                <a href="#" class="event-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="event-card">
+                            <div class="event-date">
+                                <span class="date-day">22</span>
+                                <span class="date-month">авг</span>
+                            </div>
+                            <div class="event-info">
+                                <h4>Мастер-класс по подготовке к ЕНТ</h4>
+                                <p>Онлайн, 15:00 - 17:00</p>
+                                <a href="#" class="event-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="event-card">
+                            <div class="event-date">
+                                <span class="date-day">25</span>
+                                <span class="date-month">авг</span>
+                            </div>
+                            <div class="event-info">
+                                <h4>Встреча с деканами факультетов</h4>
+                                <p>Актовый зал, 11:00 - 13:00</p>
+                                <a href="#" class="event-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="see-all-events">Смотреть все мероприятия <i class="fas fa-long-arrow-alt-right"></i></a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Секция "Свяжитесь с нами" -->
+        <section class="contact-us-section">
+            <h2>Свяжитесь с нами</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Приемная комиссия Университета Шакарима</h3>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="contact-text">
+                                <p>071410, РК, область Абай, г. Семей, ул. Глинки, 20А</p>
+                                <p class="contact-note">Главный корпус, 1 этаж, кабинет 107</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div class="contact-text">
+                                <p><a href="tel:+77713654625">+7 (771) 365-46-25</a></p>
+                                <p class="contact-note">Приемная комиссия</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-text">
+                                <p><a href="mailto:admission@shakarim.kz">admission@shakarim.kz</a></p>
+                                <p class="contact-note">Электронная почта</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                            <div class="contact-text">
+                                <p>Пн-Пт: 9:00 - 18:00<br>Сб: 9:00 - 14:00<br>Вс: выходной</p>
+                                <p class="contact-note">Часы работы</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-socials">
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-illustration">
+                    <img src="template.png" alt="Приемная комиссия" width="500" height="400">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Основные колонки: первый ряд -->
+                <div class="footer-columns">
+                    <!-- Левая колонка: Контактная информация -->
+                    <div class="footer-left">
+                        <div class="contact-info">
+                            <h3>Контактные телефоны:</h3>
+                            <p>Адрес: <a href="https://2gis.kz/semey/firm/70000001051587633">071410, РК, область Абай, г. Семей, ул. Глинки, 20А</a></p>
+                            
+                            <p>Приемная ректора: <br>
+                               <a href="tel:+77222316029">+7 (7222) 31-60-29</a></p>
+                            
+                            <p>Приемная комиссия: <br>
+                               <a href="tel:+77713654625">+7 (771) 365-46-25</a></p>
+                            
+                            <p>Канцелярия: <br>
+                               <a href="tel:+77222313175">+7 (7222) 31-31-75</a><br>
+                               <a href="mailto:kense@shakarim.kz">kense@shakarim.kz</a></p>
+                            
+                            <p>Call centre: <br>
+                               <a href="tel:+77222313175">+7 (7222) 31-31-75</a></p>
+                            
+                            <p>Министерство науки и высшего образования РК: <br>
+                               <a href="tel:+77172742361">+7 (7172) 74-23-61</a><br>
+                               <a href="https://www.instagram.com/gylym_jogarybilim/">@gylym.jogarybilim</a></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Средние и правые колонки -->
+                    <div class="footer-right">
+                        <!-- Средняя колонка: Школы -->
+                        <div class="schools-links">
+                            <h3>Школы:</h3>
+                            <ul>
+                                <li><a href="https://rse.faculty.shakarim.kz/ru">Исследовательская школа пищевой инженерии</a></li>
+                                <li><a href="https://rsvma.faculty.shakarim.kz/ru">Исследовательская школа ветеринарии и сельского хозяйства</a></li>
+                                <li><a href="https://hsp.faculty.shakarim.kz/ru">Высшая школа филологии</a></li>
+                                <li><a href="https://gse.faculty.shakarim.kz/ru">Высшая школа образования</a></li>
+                                <li><a href="https://gspms.faculty.shakarim.kz/ru">Высшая школа физико-математических наук</a></li>
+                                <li><a href="https://gsns.faculty.shakarim.kz/ru">Высшая школа естественных наук</a></li>
+                                <li><a href="https://rspcs.faculty.shakarim.kz/ru">Исследовательская школа физических и химических наук</a></li>
+                                <li><a href="https://gsaic.faculty.shakarim.kz/ru">Высшая школа искусственного интеллекта и строительства</a></li>
+                                <li><a href="https://gsb.faculty.shakarim.kz/ru">Высшая школа бизнеса</a></li>
+                                <li><a href="https://shakarim.edu.kz/ru/structure/shakarim-higher-college?pathway=kolledzh">Колледж</a></li>
+                                <li><a href="https://shakarim.edu.kz/ru/structure/shakarim-high-school?pathway=universitet">Shakarim High School</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Правая колонка: Абитуриенту и Навигация -->
+                        <div class="applicant-navigation">
+                            <h3>Абитуриенту:</h3>
+                            <ul>
+                                <li><a href="https://shakarim.edu.kz/ru/pages/index?pathway=abituriyentam&slug=spisok-dokumentov">Бакалавриат</a></li>
+                                <li><a href="https://shakarim.edu.kz/ru/pages/index?pathway=abituriyentam&slug=spisok-dokumentov">Магистратура</a></li>
+                                <li><a href="https://shakarim.edu.kz/ru/pages/index?pathway=abituriyentam&slug=spisok-dokumentov">Докторантура</a></li>
+                                <li><a href="https://gsb.faculty.shakarim.kz/ru">MBA</a></li>
+                                <li><a href="https://shakarim.edu.kz/ru/pages/index?slug=polozheniye-o-grante-i-lgotakh">Гранты и льготы</a></li>
+                                <li><a href="https://shakarim.edu.kz/ru/pages/index?pathway=abituriyentam&slug=virtualnaya-priyemnaya-komissiya">Контакты</a></li>
+                            </ul>
+                            
+                            <h3>Навигация:</h3>
+                            <ul>
+                                <li><a href="https://shakarim.edu.kz/ru/pages/index?pathway=universitet&slug=ob-universitete">Университет</a></li>
+                                <li><a href="https://shakarim.edu.kz/ru/pages/index?pathway=obrazovaniye&slug=akademicheskaya-politika">Образование</a></li>
+                                <li><a href="https://shakarim.edu.kz/ru/science/projects-list?pathway=nauka">Наука</a></li>
+                                <li><a href="https://shakarim.edu.kz/ru/international/partners?pathway=mezhdunarodnoye-sotrudnichestvo">Международное сотрудничество</a></li>
+                                <li><a href="https://shakarim.edu.kz/ru/student/stud-parliament?pathway=molodezhnaya-politika">Молодежная политика</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Второй ряд: Полезные ссылки слева, карта справа -->
+                <div class="footer-second-row">
+                    <!-- Полезные ссылки -->
+                    <div class="useful-links-section">
+                        <h3>International:</h3>
+                        <p><a href="tel:+77777777777">+7 (777) 777-77-77</a></p>
+                        
+                        <h3>Полезные ссылки:</h3>
+                        <ul class="useful-links">
+                            <li><a href="https://platonus.shakarim.kz/">Platonus</a></li>
+                            <li><a href="https://hub.shakarim.kz/">Shakarim Hub</a></li>
+                            <li><a href="https://aicheck.shakarim.kz/">Shakarim AI Check</a></li>
+                            <li><a href="https://t.me/ShakarimAdmissionBot">Shakarim Admisson Bot</a></li>
+                            <li><a href="#">Shakarim Career AI</a></li>
+                            <li><a href="#">Shakarim Smart Course</a></li>
+                            <li><a href="#">Shakarim Reserch Hub</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Карта 2GIS -->
+                    <div class="map-section">
+                        <a class="dg-widget-link" href="http://2gis.kz/semey/firm/70000001051587633/center/80.21304845809937,50.399532087624436/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть на карте Семея</a>
+                        <div class="dg-widget-link"><a href="http://2gis.kz/semey/firm/70000001051587633/photos/70000001051587633/center/80.21304845809937,50.399532087624436/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos">Фотографии компании</a></div>
+                        <div class="dg-widget-link"><a href="http://2gis.kz/semey/center/80.213045,50.399279/zoom/16/routeTab/rsType/bus/to/80.213045,50.399279╎Shakarim University?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти проезд до Shakarim University</a></div>
+                        <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
+                        <script charset="utf-8">new DGWidgetLoader({"width":"100%","height":300,"borderColor":"transparent","pos":{"lat":50.399532087624436,"lon":80.21304845809937,"zoom":16},"opt":{"city":"semey"},"org":[{"id":"70000001051587633"}]});</script>
+                        <noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-bottom">
+                <div class="footer-privacy">
+                    <a href="https://shakarim.edu.kz/ru/#">Политика конфиденциальности</a>
+                </div>
+                <div class="footer-copyright">
+                    <p>Информация © 1993–2025</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/shakarim_university"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/universitet.shakarim.1"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://t.me/shakarimmedia"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.youtube.com/channel/UCXJxFbPBx_Vot4V96_oekDg"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@shakarim_university?_t=8eUlT4aAOhC&_r=1"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Button -->
+    <a href="tel:+77222313175" class="contact-button">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="scroll-top-button">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="abituriyentam.js"></script>
+    <div class="mobile-menu-backdrop"></div>
+</body>
+</html>
+ 
