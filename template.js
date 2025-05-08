@@ -6,47 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Инициализация мобильного мега-меню
     initMobileMegaMenu();
 
-    // ------------- ИНИЦИАЛИЗАЦИЯ СЛАЙДЕРА -------------
-    // Получаем все слайды
-    const slides = document.querySelectorAll('.slide');
-    let currentSlide = 0;
-
-    // Создаем индикаторы (точки) на основе количества слайдов
-    const dotsContainer = document.querySelector('.slider-dots');
-    slides.forEach((_, index) => {
-        const dot = document.createElement('span');
-        dot.classList.add('dot');
-        // Активируем первую точку
-        if (index === 0) dot.classList.add('active');
-        // Добавляем обработчик клика для переключения слайдов
-        dot.addEventListener('click', () => goToSlide(index));
-        dotsContainer.appendChild(dot);
-    });
-    
-    /**
-     * Функция переключения слайдов
-     * @param {number} n - Индекс слайда для показа
-     */
-    function goToSlide(n) {
-        // Убираем активный класс с текущего слайда и точки
-        slides[currentSlide].classList.remove('active');
-        document.querySelectorAll('.dot')[currentSlide].classList.remove('active');
-        
-        // Вычисляем новый индекс с учетом цикличности
-        currentSlide = (n + slides.length) % slides.length;
-        
-        // Добавляем активный класс новому слайду и точке
-        slides[currentSlide].classList.add('active');
-        document.querySelectorAll('.dot')[currentSlide].classList.add('active');
-    }
-    
-    // Кнопки управления слайдером (вперед/назад)
-    document.querySelector('.next').addEventListener('click', () => goToSlide(currentSlide + 1));
-    document.querySelector('.prev').addEventListener('click', () => goToSlide(currentSlide - 1));
-    
-    // Автоматическое переключение слайдов каждые 5 секунд
-    setInterval(() => goToSlide(currentSlide + 1), 5000);
-    
     // ------------- МЕГА-МЕНЮ -------------
     // Переключение видимости мега-меню при клике на кнопку
     const menuToggle = document.querySelector('.menu-toggle');
@@ -119,18 +78,46 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ------------- ИНИЦИАЛИЗАЦИЯ ДОПОЛНИТЕЛЬНЫХ МОДУЛЕЙ -------------
-    // Эффект при наведении на блоки школ
-    initSchoolsHover();
-    
-    // Анимация прокрутки новостей
-    initNewsScrollAnimation();
-    
     // Инициализация календаря
     initCalendar();
 
     // Инициализация поведения шапки при прокрутке
     initHeaderScroll();
+
+    // SPOILER LOGIC FOR content
+    document.querySelectorAll('.content .spoiler-title').forEach(function(title) {
+        title.addEventListener('click', function() {
+            var toggle = this.querySelector('.spoiler-toggle');
+            if (toggle) {
+                toggle.classList.toggle('show-icon');
+                toggle.classList.toggle('hide-icon');
+            }
+            var content = this.parentElement.querySelector('.spoiler-content');
+            if (content) {
+                content.style.display = (content.style.display === 'none' || content.style.display === '') ? 'block' : 'none';
+            }
         });
+    });
+
+    // TEST BUTTONS LOGIC
+    const testButtons = document.querySelectorAll('.test-btn');
+    const imageBlock = document.getElementById('test-image-block');
+    let currentImg = '';
+    testButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const img = this.getAttribute('data-img');
+            if (imageBlock.style.display !== 'none' && currentImg === img) {
+                imageBlock.style.display = 'none';
+                imageBlock.innerHTML = '';
+                currentImg = '';
+            } else {
+                imageBlock.innerHTML = `<img src="${img}" alt="${img}" style="max-width:100%;height:auto;display:block;margin:0 auto;box-shadow:0 2px 12px rgba(0,0,0,0.08);border-radius:8px;">`;
+                imageBlock.style.display = 'block';
+                currentImg = img;
+            }
+        });
+    });
+});
 
 /**
  * Функция управления шапкой сайта при прокрутке
@@ -555,161 +542,7 @@ function initCalendar() {
 }
 
 /**
- * Добавляет интерактивность к новостным блокам
- * Создает эффекты при наведении и взаимодействии
- */
-function initNewsItems() {
-    const newsItems = document.querySelectorAll('.news-item');
-    
-    newsItems.forEach(item => {
-        // Добавляем анимацию при наведении
-        item.addEventListener('mouseenter', function() {
-            newsItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.style.opacity = '0.7';
-                    otherItem.style.transform = 'scale(0.98)';
-                }
-            });
-        });
-        
-        // Возвращаем исходное состояние при убирании курсора
-        item.addEventListener('mouseleave', function() {
-            newsItems.forEach(otherItem => {
-                otherItem.style.opacity = '';
-                otherItem.style.transform = '';
-            });
-                });
-            });
-}
-
-/**
- * Инициализирует анимацию счетчиков статистики
- * Запускает счетчики при прокрутке до блока статистики
- */
-function initStatsCounter() {
-    const stats = document.querySelectorAll('.stat-number');
-    let counted = false;
-                        
-    /**
-     * Функция анимации счетчика
-     * @param {Element} target - Целевой элемент для анимации
-     * @param {number} start - Начальное значение
-     * @param {number} end - Конечное значение
-     * @param {number} duration - Длительность анимации в мс
-     */
-    function animateCounter(target, start, end, duration) {
-        let startTime = null;
-        
-        // Функция анимации
-        function animation(currentTime) {
-            if (!startTime) startTime = currentTime;
-            const progress = Math.min((currentTime - startTime) / duration, 1);
-            const value = Math.floor(progress * (end - start) + start);
-            target.textContent = value;
-            
-            if (progress < 1) {
-                window.requestAnimationFrame(animation);
-                            }
-        }
-        
-        window.requestAnimationFrame(animation);
-    }
-    
-    /**
-     * Проверяет, виден ли блок статистики в области просмотра
-     * и запускает анимацию при необходимости
-     */
-    function checkScroll() {
-        if (counted) return;
-        
-        const windowHeight = window.innerHeight;
-        const statsSection = document.querySelector('.stats');
-        
-        if (!statsSection) return;
-        
-        const statsSectionTop = statsSection.getBoundingClientRect().top;
-        const statsSectionBottom = statsSection.getBoundingClientRect().bottom;
-        
-        if (statsSectionTop < windowHeight && statsSectionBottom > 0) {
-            counted = true;
-            
-            stats.forEach(stat => {
-                const target = parseInt(stat.textContent, 10);
-                animateCounter(stat, 0, target, 2000);
-            });
-        }
-    }
-    
-    // Добавляем обработчик прокрутки
-    window.addEventListener('scroll', checkScroll);
-                            
-    // Проверяем при начальной загрузке
-    checkScroll();
-                            }
-                            
-/**
- * Инициализирует эффекты при наведении на блоки школ
- */
-function initSchoolsHover() {
-    const schools = document.querySelectorAll('.school');
-    
-    schools.forEach(school => {
-        // Затемняем другие школы при наведении на одну
-        school.addEventListener('mouseenter', function() {
-            schools.forEach(s => {
-                if (s !== school) {
-                    s.style.opacity = '0.6';
-                }
-            });
-        });
-        
-        // Возвращаем исходное состояние при убирании курсора
-        school.addEventListener('mouseleave', function() {
-            schools.forEach(s => {
-                s.style.opacity = '';
-                        });
-        });
-            });
-        }
-        
-/**
- * Инициализирует анимацию при прокрутке новостных блоков
- * Новости открываются при достижении середины экрана
- */
-function initNewsScrollAnimation() {
-    const newsItems = document.querySelectorAll('.news-item');
-    
-    /**
-     * Обновляет состояние анимации новостных блоков при прокрутке
-     */
-    function updateNewsAnimation() {
-        newsItems.forEach((item) => {
-            const rect = item.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-            const middleScreen = windowHeight / 2;
-            
-            // Проверяем, достигла ли верхняя часть новости середины экрана
-            // и нижняя часть все еще видна
-            if (rect.top <= middleScreen && rect.bottom >= 0) {
-                // Элемент виден и верхняя часть достигла середины экрана
-                item.style.setProperty('--open-progress', '1');
-            } else {
-                // Элемент не виден или верхняя часть еще не достигла середины
-                item.style.setProperty('--open-progress', '0');
-            }
-        });
-    }
-    
-    // Первоначальное обновление анимации
-    updateNewsAnimation();
-    
-    // Обновление при прокрутке
-    window.addEventListener('scroll', updateNewsAnimation);
-}
-
-/**
- * Инициализирует мобильное меню аудитории (верхнее меню) для мобильных устройств
- * Управляет показом/скрытием меню с пунктами "Абитуриентам", "Обучающимся" и т.д.
+ * Инициализация мобильного меню аудитории
  */
 function initMobileAudienceMenu() {
     const mobileAudienceBtn = document.querySelector('.mobile-audience-btn');

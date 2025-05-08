@@ -1286,8 +1286,8 @@ main {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    max-height: 550px;
+    height: auto;
+    min-height: 500px;
     overflow: visible;
 }
 
@@ -1321,11 +1321,11 @@ main {
 }
 
 #calendar {
-    height: 100%;
+    height: auto;
     min-height: 300px;
-    max-height: 400px;
     flex-grow: 1;
     overflow: visible;
+    position: relative;
 }
 
 /* Стили для календаря FullCalendar */
@@ -1563,7 +1563,9 @@ main {
 .fc-scroller,
 .fc-view-harness,
 .fc-view-harness-active,
-#calendar {
+#calendar,
+.calendar-container,
+.announcements-grid {
     overflow: visible !important;
 }
 
@@ -1666,7 +1668,8 @@ main {
     
     .calendar-container {
         margin-bottom: 20px;
-        max-height: 450px;
+        height: auto;
+        min-height: 450px;
         overflow: visible;
     }
 }
@@ -1681,8 +1684,29 @@ main {
     }
     
     .calendar-container {
-        max-height: 400px;
+        height: auto;
+        min-height: 400px;
         overflow: visible;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-container {
+        padding: 10px;
+        height: auto;
+        min-height: 380px;
+        overflow: visible;
+    }
+    
+    /* Исправляем высоту строк для корректного отображения на мобильных */
+    .fc-daygrid-day {
+        min-height: 35px !important;
+        height: auto !important;
+    }
+    
+    .fc-daygrid-day-frame {
+        height: 100% !important;
+        min-height: 35px !important;
     }
 }
 
@@ -2389,14 +2413,6 @@ html, body {
         padding: 10px 0;
     }
     
-    /* Ограничение максимальной высоты верхнего хедера */
-    .top-header {
-        max-height: 60px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-    }
-    
     /* Уменьшаем логотип на мобильных */
     .logo img {
         max-height: 40px;
@@ -2767,7 +2783,6 @@ html, body {
 
 /* Медиа-запросы для адаптивности */
 @media (max-width: 768px) {
-    /* ... existing code ... */
     
     /* Стили для мобильного меню и подкатегорий */
     .mega-menu {
@@ -2902,11 +2917,9 @@ html, body {
     }
 }
 
-/* ... existing code ... */
 
 /* Стили для мобильного меню */
 @media (max-width: 768px) {
-    /* ... existing code ... */
     
     /* Центрирование элементов в мобильном меню */
     .mega-menu .category-item,
@@ -3013,7 +3026,6 @@ html, body {
     }
 }
 
-/* ... existing code ... */
 
 /* Адаптация блоков статистики */
 @media (max-width: 768px) {
@@ -3071,7 +3083,6 @@ html, body {
 }
 
 @media (max-width: 480px) {
-    /* ... existing code ... */
     
     /* Дополнительные улучшения для каталога на очень маленьких экранах */
     .catalog-item {
@@ -3100,11 +3111,9 @@ html, body {
         width: 30px;
     }
     
-    /* ... existing code ... */
 }
 
 @media (max-width: 576px) {
-    /* ... existing code ... */
     
     /* Улучшение отображения анонсов на мобильных устройствах */
     .announcements-list {
@@ -3180,7 +3189,6 @@ html, body {
 }
 
 @media (max-width: 480px) {
-    /* ... existing code ... */
     
     /* Улучшения календаря для очень маленьких экранов */
     .calendar-container {
@@ -3230,7 +3238,6 @@ html, body {
 
 /* Стили для школ на мобильных устройствах */
 @media (max-width: 480px) {
-    /* ... existing code ... */
     
     /* Сетка школ 2x3 для мобильных устройств */
     .schools-grid {
@@ -3319,7 +3326,6 @@ html, body {
     }
 }
 
-/* ... existing code ... */
 
 /* Адаптация для экранов ноутбуков (1024px) */
 @media (max-width: 1024px) {
@@ -3359,10 +3365,8 @@ html, body {
     }
 }
 
-/* ... existing code ... */
 
 @media (max-width: 480px) {
-    /* ... existing code ... */
     
     /* Обновляем высоту для мобильной версии */
     .school-name {
@@ -3371,11 +3375,9 @@ html, body {
     }
 }
 
-/* ... existing code ... */
 
 /* Адаптация для планшетов (768px) */
 @media (max-width: 768px) {
-    /* ... existing code ... */
     
     /* Адаптация для блоков школ - отображение по 2 в ряд */
     .top-row, .bottom-row {
@@ -3392,7 +3394,6 @@ html, body {
         flex: 0 0 auto;
     }
     
-    /* ... existing code ... */
 }
 
 /* Дополнительные стили для самых маленьких устройств */
@@ -3637,62 +3638,215 @@ html, body {
     }
 }
 
-/* ... existing code ... */
+/* Медиа-запросы для адаптивности календаря */
+@media (max-width: 992px) {
+    .announcements-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .calendar-container {
+        margin-bottom: 20px;
+        height: auto;
+        min-height: 450px;
+        overflow: visible;
+    }
+}
 
-/* Особые стили для очень маленьких экранов */
+@media (max-width: 768px) {
+    .calendar-container {
+        height: auto;
+        min-height: auto;
+        overflow: visible;
+    }
+    
+    #calendar {
+        height: auto !important;
+        min-height: auto !important;
+    }
+    
+    /* Принудительно задаем правильную высоту ячеек для месяцев с 6 неделями */
+    .fc-dayGridMonth-view .fc-daygrid-body {
+        height: auto !important;
+    }
+    
+    /* Обеспечиваем правильный размер строк */
+    .fc-daygrid-body table {
+        height: auto !important;
+    }
+    
+    /* Исправление высоты строк для 6 недель */
+    .fc-scrollgrid-sync-table {
+        height: auto !important;
+    }
+}
+
 @media (max-width: 576px) {
-    /* Уменьшаем отступы на маленьких экранах */
-    .container {
-        padding: 0 15px;
+    .calendar-container {
+        height: auto;
+        min-height: auto;
+        overflow: visible;
+        padding: 15px;
     }
     
-    /* Адаптация шапки для маленьких экранов */
-    .top-header {
-        max-height: 60px;
-        height: 60px;
+    /* Уменьшаем внутренние отступы в ячейках для компактности */
+    .fc-daygrid-day-frame {
+        padding: 2px !important;
     }
     
-    /* Делаем кнопки в шапке меньше */
-    .top-header-content .btn {
-        padding: 5px 10px;
+    /* Сокращаем дни недели до одной буквы */
+    .fc .fc-col-header-cell-cushion {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-container {
+        padding: 8px;
+        height: auto;
+        min-height: auto;
+        overflow: visible;
+    }
+    
+    /* Исправляем высоту строк для корректного отображения на мобильных */
+    .fc-daygrid-day {
+        min-height: 25px !important;
+        height: auto !important;
+    }
+    
+    .fc-daygrid-day-frame {
+        height: 100% !important;
+        min-height: 25px !important;
+        padding: 0 !important;
+    }
+    
+    /* Уменьшаем размер цифр дат */
+    .fc-daygrid-day-number {
+        font-size: 11px;
+        padding: 1px 3px 1px 1px !important;
+    }
+    
+    /* Делаем ячейки календаря компактнее */
+    .fc-col-header-cell {
+        padding: 1px !important;
+    }
+    
+    /* Уменьшаем размер дней недели */
+    .fc-col-header-cell-cushion {
+        font-size: 10px !important;
+        padding: 2px 1px !important;
+    }
+    
+    /* Уменьшаем высоту события "Сессия" */
+    .thin-event {
+        height: 8px !important;
+        max-height: 8px !important;
+        font-size: 8px !important;
+    }
+    
+    .thin-event .fc-event-title {
+        font-size: 8px !important;
+        line-height: 1 !important;
+    }
+    
+    /* Уменьшаем высоту строк таблицы */
+    .fc-scrollgrid-sync-table {
+        height: auto !important;
+    }
+    
+    .fc-scrollgrid-sync-inner {
+        min-height: 25px !important;
+    }
+    
+    /* Уменьшаем отступы в заголовке календаря */
+    .calendar-navigation {
+        margin-bottom: 10px;
+    }
+    
+    .calendar-navigation button {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .calendar-navigation h3 {
+        font-size: 16px;
+    }
+}
+
+/* Еще более компактные стили для самых маленьких экранов */
+@media (max-width: 360px) {
+    .calendar-container {
+        padding: 5px;
+    }
+    
+    .fc-daygrid-day {
+        min-height: 20px !important;
+    }
+    
+    .fc-daygrid-day-frame {
+        min-height: 20px !important;
+    }
+    
+    .fc-daygrid-day-number {
+        font-size: 10px;
+    }
+    
+    /* Убираем лишнее пространство между ячейками */
+    .fc th, .fc td {
+        border-width: 0.5px !important;
+    }
+    
+    /* Уменьшаем высоту заголовка навигации календаря */
+    .calendar-navigation {
+        margin-bottom: 5px;
+    }
+    
+    .calendar-navigation h3 {
         font-size: 14px;
     }
-    
-    /* Уменьшаем размер шрифта в шапке */
-    .contact-info {
-        font-size: 13px;
-    }
-    
-    /* Добавляем отступ для мобильного меню */
-    .main-nav.mobile-open {
-        padding-bottom: 30px;
-    }
-    
-    /* ... existing code ... */
 }
 
-/* ... existing code ... */
-
-/* Стили для планшетов */
-@media (min-width: 576px) and (max-width: 991px) {
-    /* Адаптация шапки для планшетов */
-    .top-header {
-        max-height: 60px;
-        height: 60px;
-        display: flex;
-        align-items: center;
+/* Медиа-запросы для отключения гиперссылок в календаре на планшетах и мобильных устройствах */
+@media (max-width: 1024px) {
+    /* Отключаем кликабельность для всех элементов календаря */
+    .fc a {
+        pointer-events: none !important;
     }
     
-    .logo img {
-        max-height: 45px;
+    /* Отключаем курсор-указатель */
+    .holiday-circle,
+    .event-asterisk,
+    .thin-event,
+    .fc-h-event,
+    .fc-daygrid-day-number[data-holiday] {
+        cursor: default !important;
+        pointer-events: none !important;
     }
     
-    /* Настройка меню на планшетах */
-    .top-header .container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    /* Убираем эффект наведения для кружков */
+    .holiday-circle:hover {
+        transform: none !important;
+    }
+    
+    /* Отключаем анимацию подсветки звездочки */
+    .event-asterisk:hover {
+        color: #FF5722 !important;
+        transform: none !important;
     }
 }
 
-/* ... existing code ... */
+/* Дополнительные стили для мобильных устройств */
+@media (max-width: 480px) {
+    /* Убираем подчеркивание и другие эффекты для всех ссылок в календаре */
+    .fc a,
+    .fc-h-event.fc-event,
+    .fc-daygrid-event,
+    .fc-daygrid-dot-event {
+        text-decoration: none !important;
+        pointer-events: none !important;
+    }
+    
+    /* Явно отключаем интерактивность для звездочек */
+    .has-asterisk .event-asterisk {
+        pointer-events: none !important;
+    }
+}
