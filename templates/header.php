@@ -4,7 +4,7 @@
         <div class="container">
             <div class="top-header-content">
                 <div class="logo">
-                    <a href="index.php">
+                    <a href="/">
                         <img src="assets/icons/logo.png" alt="Shakarim University 1934">
                     </a>
                 </div>
@@ -14,8 +14,8 @@
                 </button>
                 <nav class="main-nav">
                     <ul>
-                        <li><a href="applicants.php">Абитуриентам</a></li>
-                        <li><a href="template.php">Обучающимся</a></li>
+                        <li><a href="applicants">Абитуриентам</a></li>
+                        <li><a href="template">Обучающимся</a></li>
                         <li><a href="#">Выпускникам</a></li>
                         <li><a href="#">Работодателям</a></li>
                     </ul>
