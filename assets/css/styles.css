@@ -479,7 +479,7 @@ img {
                       rgba(0, 0, 0, 0.2) 0%, 
                       rgba(0, 0, 0, 0.4) 50%, 
                       rgba(0, 0, 0, 0.7) 100%), 
-                      url('building.png');
+                      url('../img/building.png');
     display: flex;
     align-items: center;
     justify-content: center;
@@ -918,12 +918,12 @@ main {
     z-index: 1;
 }
 
-.catalog-item:nth-child(1) .catalog-bg { background-image: url('bg-child.jpg'); }
-.catalog-item:nth-child(2) .catalog-bg { background-image: url('bg-enrollee.jpg'); }
-.catalog-item:nth-child(3) .catalog-bg { background-image: url('bg-teaching.jpg'); }
-.catalog-item:nth-child(4) .catalog-bg { background-image: url('bg-graduate.jpg'); }
-.catalog-item:nth-child(5) .catalog-bg { background-image: url('bg-employer.jpg'); }
-.catalog-item:nth-child(6) .catalog-bg { background-image: url('bg-senior-teaching.jpg'); }
+.catalog-item:nth-child(1) .catalog-bg { background-image: url('../img/bg-child.jpg'); }
+.catalog-item:nth-child(2) .catalog-bg { background-image: url('../img/bg-enrollee.jpg'); }
+.catalog-item:nth-child(3) .catalog-bg { background-image: url('../img/bg-teaching.jpg'); }
+.catalog-item:nth-child(4) .catalog-bg { background-image: url('../img/bg-graduate.jpg'); }
+.catalog-item:nth-child(5) .catalog-bg { background-image: url('../img/bg-employer.jpg'); }
+.catalog-item:nth-child(6) .catalog-bg { background-image: url('../img/bg-senior-teaching.jpg'); }
 
 .catalog-overlay {
     position: absolute;
