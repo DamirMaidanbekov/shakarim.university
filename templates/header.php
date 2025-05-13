@@ -16,7 +16,7 @@
                     <ul>
                         <li><a href="applicants">Абитуриентам</a></li>
                         <li><a href="template">Обучающимся</a></li>
-                        <li><a href="#">Выпускникам</a></li>
+                        <li><a href="template-structure">Выпускникам</a></li>
                         <li><a href="#">Работодателям</a></li>
                     </ul>
                 </nav>
@@ -41,13 +41,13 @@
                                 <ul class="subcategories">
                                     <li class="subcategory"><a href="#" class="subcategory-link">Виртуальный тур</a></li>
                                     <li class="subcategory"><a href="#" class="subcategory-link">Об университете</a></li>
-                                    <li class="subcategory"><a href="#" class="subcategory-link">История университета</a></li>
+                                    <li class="subcategory"><a href="history-university" class="subcategory-link">История университета</a></li>
                                     <li class="subcategory"><a href="#" class="subcategory-link">Шакарим Кудайбердыулы</a></li>
                                     <li class="subcategory has-children">
                                         <a href="#" class="subcategory-link">Корпоративное управление</a>
                                         <ul class="subsubcategories">
                                             <li class="subsubcategory"><a href="#">Корпоративное управление</a></li>
-                                            <li class="subsubcategory"><a href="#">Корпоративные документы</a></li>
+                                            <li class="subsubcategory"><a href="corporate-documents">Корпоративные документы</a></li>
                                         </ul>
                                     </li>
                                     <li class="subcategory"><a href="#" class="subcategory-link">Руководители вузов</a></li>
@@ -75,7 +75,7 @@
                                             <li class="subsubcategory"><a href="#">Комиссия по академическому качеству</a></li>
                                         </ul>
                                     </li>
-                                    <li class="subcategory"><a href="#" class="subcategory-link">Государственные закупки</a></li>
+                                    <li class="subcategory"><a href="test" class="subcategory-link">Государственные закупки</a></li>
                                     <li class="subcategory"><a href="#" class="subcategory-link">Университет без коррупции</a></li>
                                     <li class="subcategory has-children">
                                         <a href="#" class="subcategory-link">Устойчивое развитие</a>
@@ -222,7 +222,7 @@
                                             <li class="subsubcategory"><a href="#">НЦ Истории и археологии</a></li>
                                         </ul>
                                     </li>
-                                    <li class="subcategory"><a href="#" class="subcategory-link">Shakarim Museum</a></li>
+                                    <li class="subcategory"><a href="shakarim-museum.php" class="subcategory-link">Shakarim Museum</a></li>
                                     <li class="subcategory"><a href="#" class="subcategory-link">Стартап проекты</a></li>
                                     <li class="subcategory"><a href="#" class="subcategory-link">Научные проекты</a></li>
                                     <li class="subcategory"><a href="#" class="subcategory-link">Закуп</a></li>
