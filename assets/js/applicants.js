@@ -9,13 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Инициализация секции образовательных уровней
     initEducationLevels();
 
-    // Инициализация карты путешествия (карта сокровищ)
-    initTreasureMap();
-
     // Инициализация секции "Что если я...?"
     initWhatIfSection();
 
-    // Инициализация календаря
+    // Инициализация секции "Популярные вопросы"
+    initPopularQuestions();
+
     initCalendar();
 
     // ------------- МЕГА-МЕНЮ -------------
@@ -211,338 +210,6 @@ function initHeaderScroll() {
         // Сохраняем текущее положение прокрутки для следующего вызова
         lastScrollTop = scrollTop;
     });
-}
-
-/**
- * Инициализация и настройка FullCalendar
- * Создает интерактивный календарь с событиями, праздниками и всплывающими подсказками
- */
-function initCalendar() {
-    // Получаем элемент календаря
-    const calendarEl = document.getElementById('calendar');
-    
-    // Если календарь не найден, прекращаем выполнение
-    if (!calendarEl) return;
-    
-    // Создаем экземпляр календаря с настройками
-    const calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth', // Вид по умолчанию - месяц
-        initialDate: '2024-08-01',   // Начальная дата
-        headerToolbar: false,        // Отключаем встроенную навигацию, используем свою
-        locale: 'ru',                // Локализация
-        height: 'auto',              // Автоматическая высота календаря
-        expandRows: true,            // Расширяем строки для заполнения всей высоты
-        fixedWeekCount: false,       // Позволяем показывать только нужное количество недель
-        
-        // Обработчик монтирования ячейки дня
-        dayCellDidMount: function(info) {
-            // Добавляем цветные кружки для праздничных дней
-            const date = info.date;
-            const day = date.getDate();
-            const month = date.getMonth() + 1; // +1 т.к. месяцы начинаются с 0
-            const year = date.getFullYear();
-            
-            // Проверяем праздничные дни
-            if (year === 2024 && month === 8) {
-                if (day === 30) {
-                    // День Конституции - синий кружок
-                    const dayNumberEl = info.el.querySelector('.fc-daygrid-day-number');
-                    dayNumberEl.classList.add('holiday-circle');
-                    dayNumberEl.classList.add('blue-circle');
-                    dayNumberEl.setAttribute('data-holiday', 'День Конституции Республики Казахстан');
-                    dayNumberEl.style.cursor = 'pointer';
-                    dayNumberEl.addEventListener('click', function() {
-                        window.location.href = '#';
-                    });
-                }
-            }
-        },
-        
-        // Список событий календаря
-        events: [
-            // Дни открытых дверей
-            {
-                title: 'День открытых дверей',
-                start: '2024-08-15T10:00:00',
-                end: '2024-08-15T14:00:00',
-                url: '#',
-                color: '#4285F4',
-                classNames: ['event-with-asterisk']
-            },
-            {
-                title: 'Мастер-класс по подготовке к ЕНТ',
-                start: '2024-08-22T15:00:00',
-                end: '2024-08-22T17:00:00',
-                url: '#',
-                color: '#4285F4',
-                classNames: ['event-with-asterisk']
-            },
-            {
-                title: 'Встреча с деканами факультетов',
-                start: '2024-08-25T11:00:00',
-                end: '2024-08-25T13:00:00',
-                url: '#',
-                color: '#4285F4',
-                classNames: ['event-with-asterisk']
-            },
-            
-            // Приемная комиссия
-            {
-                title: 'Прием документов',
-                start: '2024-08-01',
-                end: '2024-08-25', // Дата окончания не включается в FullCalendar
-                url: '#',
-                color: '#34A853',
-                classNames: ['thin-event']
-            },
-            
-            // Консультации
-            {
-                title: 'Консультация по поступлению',
-                start: '2024-08-10T14:00:00',
-                url: '#',
-                color: '#FBBC05',
-                classNames: ['event-with-asterisk']
-            },
-            {
-                title: 'Консультация по поступлению',
-                start: '2024-08-17T14:00:00',
-                url: '#',
-                color: '#FBBC05',
-                classNames: ['event-with-asterisk']
-            }
-        ]
-    });
-    
-    // Рендерим календарь
-    calendar.render();
-    
-    // После рендеринга добавляем звездочки и всплывающие подсказки
-    setTimeout(() => {
-        // Добавляем звездочки к датам с событиями
-        addAsterisksToEvents(calendar);
-        
-        // Добавляем всплывающие подсказки к дням
-        addTooltipsToCalendarDays(calendar);
-    }, 100);
-    
-    /**
-     * Функция для добавления звездочек к датам с событиями
-     * @param {Object} calendar - Экземпляр FullCalendar
-     */
-    function addAsterisksToEvents(calendar) {
-        // Получаем все события календаря
-        const events = calendar.getEvents();
-        const eventDates = {};
-        
-        // Отмечаем даты, на которые есть события с отметкой event-with-asterisk
-        events.forEach(event => {
-            if (event.classNames && event.classNames.includes('event-with-asterisk')) {
-                const eventDate = event.startStr.split('T')[0];
-                eventDates[eventDate] = true;
-            }
-        });
-        
-        // Перебираем все отмеченные даты и добавляем звездочки
-        Object.keys(eventDates).forEach(date => {
-            const dateCell = document.querySelector(`.fc-daygrid-day[data-date="${date}"]`);
-            if (dateCell && !dateCell.classList.contains('has-asterisk')) {
-                dateCell.classList.add('has-asterisk');
-                
-                if (!dateCell.querySelector('.event-asterisk')) {
-                    const asterisk = document.createElement('span');
-                    asterisk.className = 'event-asterisk';
-                    asterisk.textContent = '*';
-                    asterisk.title = 'Есть события в этот день';
-                    dateCell.appendChild(asterisk);
-                    
-                    asterisk.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        window.location.href = '#';
-                    });
-                }
-            }
-        });
-    }
-    
-    /**
-     * Функция для добавления всплывающих подсказок к дням календаря
-     * @param {Object} calendar - Экземпляр FullCalendar
-     */
-    function addTooltipsToCalendarDays(calendar) {
-        // Получаем все события календаря
-        const events = calendar.getEvents();
-        
-        // Группируем события по датам
-        const eventsByDate = {};
-        
-        // Добавляем данные о праздничных днях
-        const holidayDates = {
-            '2024-08-30': 'День Конституции Республики Казахстан'
-        };
-        
-        // Обрабатываем обычные события из календаря
-        events.forEach(event => {
-            const eventStart = event.start;
-            
-            // Если нет даты начала, пропускаем
-            if (!eventStart) return;
-            
-            // Форматируем дату в YYYY-MM-DD
-            const dateStr = eventStart.toISOString().split('T')[0];
-            
-            // Инициализируем массив событий для этой даты, если его еще нет
-            if (!eventsByDate[dateStr]) {
-                eventsByDate[dateStr] = [];
-            }
-            
-            // Добавляем событие в список
-            eventsByDate[dateStr].push({
-                title: event.title,
-                type: event.classNames && event.classNames.includes('thin-event') ? 'session' : 'regular',
-                time: eventStart.toTimeString().substring(0, 5) // Формат HH:MM
-            });
-        });
-        
-        // Добавляем праздничные дни в общий список событий
-        Object.keys(holidayDates).forEach(dateStr => {
-            if (!eventsByDate[dateStr]) {
-                eventsByDate[dateStr] = [];
-            }
-            
-            // Добавляем праздник в начало списка событий
-            eventsByDate[dateStr].unshift({
-                title: holidayDates[dateStr],
-                type: 'holiday'
-            });
-        });
-        
-        // Добавляем всплывающие подсказки ко всем дням с событиями
-        Object.keys(eventsByDate).forEach(dateStr => {
-            const dayEvents = eventsByDate[dateStr];
-            if (dayEvents.length > 0) {
-                const dateCell = document.querySelector(`.fc-daygrid-day[data-date="${dateStr}"]`);
-                if (dateCell) {
-                    dateCell.classList.add('has-tooltip');
-                    
-                    // Создаем содержимое всплывающей подсказки
-                    const tooltip = document.createElement('div');
-                    tooltip.className = 'day-tooltip';
-                    
-                    // Добавляем заголовок с датой
-                    const date = new Date(dateStr);
-                    const formattedDate = date.toLocaleDateString('ru-RU', {
-                        day: 'numeric',
-                        month: 'long',
-                        year: 'numeric'
-                    });
-                    
-                    const tooltipHeader = document.createElement('h4');
-                    tooltipHeader.textContent = `События на ${formattedDate}`;
-                    tooltip.appendChild(tooltipHeader);
-                    
-                    // Добавляем список событий
-                    const eventsList = document.createElement('ul');
-                    dayEvents.forEach(event => {
-                        const eventItem = document.createElement('li');
-                        eventItem.className = `${event.type}-event`;
-                        
-                        if (event.time) {
-                            eventItem.textContent = `${event.title} (${event.time})`;
-                        } else {
-                            eventItem.textContent = event.title;
-                        }
-                        
-                        eventsList.appendChild(eventItem);
-                    });
-                    tooltip.appendChild(eventsList);
-                    
-                    // Добавляем всплывающую подсказку к ячейке
-                    dateCell.appendChild(tooltip);
-                    
-                    // Добавляем обработчики событий для показа/скрытия подсказки
-                    dateCell.addEventListener('mouseenter', function() {
-                        tooltip.style.display = 'block';
-                        
-                        // Получаем размеры и позиции
-                        const tooltipRect = tooltip.getBoundingClientRect();
-                        const cellRect = dateCell.getBoundingClientRect();
-                        
-                        // Выбираем вертикальное положение (сверху или снизу)
-                        let position = 'bottom';
-                        if (cellRect.top > window.innerHeight / 2) {
-                            position = 'top';
-                        }
-                        
-                        // Выбираем горизонтальное положение (центр, справа или слева)
-                        let alignment = 'center';
-                        
-                        // Очищаем предыдущие классы позиционирования
-                        tooltip.classList.remove('position-top', 'position-bottom', 'align-left', 'align-center', 'align-right');
-                        
-                        // Добавляем нужные классы
-                        tooltip.classList.add(`position-${position}`, `align-${alignment}`);
-                    });
-                    
-                    dateCell.addEventListener('mouseleave', function() {
-                        tooltip.style.display = 'none';
-                    });
-                }
-            }
-        });
-    }
-    
-    // Настройка кнопок навигации календаря
-    const prevMonthBtn = document.getElementById('prevMonth');
-    const nextMonthBtn = document.getElementById('nextMonth');
-    const currentMonthEl = document.getElementById('currentMonth');
-    
-    if (prevMonthBtn && nextMonthBtn && currentMonthEl) {
-        // Переход на предыдущий месяц
-        prevMonthBtn.addEventListener('click', function() {
-            calendar.prev();
-            updateMonthDisplay();
-            
-            // Обновляем подсказки при смене месяца
-            setTimeout(() => {
-                document.querySelectorAll('.day-tooltip').forEach(tooltip => tooltip.remove());
-                addAsterisksToEvents(calendar);
-                addTooltipsToCalendarDays(calendar);
-            }, 100);
-        });
-        
-        // Переход на следующий месяц
-        nextMonthBtn.addEventListener('click', function() {
-            calendar.next();
-            updateMonthDisplay();
-            
-            // Обновляем подсказки при смене месяца
-            setTimeout(() => {
-                document.querySelectorAll('.day-tooltip').forEach(tooltip => tooltip.remove());
-                addAsterisksToEvents(calendar);
-                addTooltipsToCalendarDays(calendar);
-            }, 100);
-        });
-        
-        /**
-         * Функция для обновления заголовка с названием месяца и годом
-         */
-        function updateMonthDisplay() {
-            const date = calendar.getDate();
-            const locale = 'ru';
-            
-            // Форматирование месяца и года
-            const monthName = date.toLocaleString(locale, { month: 'long' });
-            const year = date.getFullYear();
-            
-            // Установка заголовка с учетом склонения в русском языке
-            let formattedMonth = monthName.charAt(0).toUpperCase() + monthName.slice(1);
-            currentMonthEl.textContent = `${formattedMonth} ${year}`;
-        }
-        
-        // Инициализация заголовка при загрузке
-        updateMonthDisplay();
-    }
 }
 
 /**
@@ -882,106 +549,6 @@ function initMobileMegaMenu() {
 }
 
 /**
- * Инициализация карты сокровищ для отображения шагов поступления
- * Рисует пути между шагами с помощью SVG
- */
-function initTreasureMap() {
-    const mapPathElement = document.querySelector('.map-path');
-    
-    // Если элемент пути не найден, прекращаем выполнение
-    if (!mapPathElement) return;
-    
-    // Создаем SVG элемент для рисования путей
-    const svgNS = "http://www.w3.org/2000/svg";
-    const svg = document.createElementNS(svgNS, "svg");
-    svg.setAttribute("width", "100%");
-    svg.setAttribute("height", "100%");
-    svg.style.position = "absolute";
-    svg.style.top = "0";
-    svg.style.left = "0";
-    
-    mapPathElement.appendChild(svg);
-    
-    // Получаем все шаги
-    const steps = document.querySelectorAll('.map-step');
-    
-    // Если шагов меньше 2, нет смысла рисовать пути
-    if (steps.length < 2) return;
-    
-    // Функция для получения центра маркера шага
-    function getStepCenter(step) {
-        const marker = step.querySelector('.step-marker');
-        const rect = step.getBoundingClientRect();
-        const markerRect = marker.getBoundingClientRect();
-        const mapRect = mapPathElement.getBoundingClientRect();
-        
-        return {
-            x: (markerRect.left + markerRect.width / 2) - mapRect.left,
-            y: (markerRect.top + markerRect.height / 2) - mapRect.top
-        };
-    }
-    
-    // Рисуем пути между шагами
-    for (let i = 0; i < steps.length - 1; i++) {
-        const currentStep = steps[i];
-        const nextStep = steps[i + 1];
-        
-        const startPoint = getStepCenter(currentStep);
-        const endPoint = getStepCenter(nextStep);
-        
-        // Создаем кривую Безье для красивой дуги между точками
-        const path = document.createElementNS(svgNS, "path");
-        
-        // Рассчитываем контрольные точки для кривой Безье
-        const dx = endPoint.x - startPoint.x;
-        const dy = endPoint.y - startPoint.y;
-        const controlPoint1 = {
-            x: startPoint.x + dx / 3,
-            y: startPoint.y + dy / 6
-        };
-        const controlPoint2 = {
-            x: endPoint.x - dx / 3,
-            y: endPoint.y - dy / 6
-        };
-        
-        // Формируем команду пути SVG
-        const d = `M ${startPoint.x},${startPoint.y} ` +
-                 `C ${controlPoint1.x},${controlPoint1.y} ` +
-                 `${controlPoint2.x},${controlPoint2.y} ` +
-                 `${endPoint.x},${endPoint.y}`;
-        
-        path.setAttribute("d", d);
-        path.setAttribute("fill", "none");
-        path.setAttribute("stroke", "#FFB800");
-        path.setAttribute("stroke-width", "4");
-        path.setAttribute("stroke-dasharray", "10,5");
-        path.setAttribute("stroke-linecap", "round");
-        path.classList.add("path-animation");
-        
-        svg.appendChild(path);
-    }
-    
-    // Анимация путей при прокрутке до карты
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const paths = svg.querySelectorAll('path');
-                paths.forEach((path, index) => {
-                    setTimeout(() => {
-                        path.style.animation = "dashOffset 2s linear forwards";
-                    }, index * 500); // Задержка для последовательной анимации
-                });
-                
-                // Прекращаем наблюдение после срабатывания
-                observer.disconnect();
-            }
-        });
-    }, { threshold: 0.3 });
-    
-    observer.observe(mapPathElement);
-}
-
-/**
  * Инициализация секции "Что если я...?"
  * Настраивает переключение между вариантами и отображение соответствующей информации
  */
@@ -1025,6 +592,304 @@ function initWhatIfSection() {
             // Имитируем клик по первой опции
             whatIfOptions[0].click();
         }
+    }
+}
+
+/**
+ * Инициализация секции "Популярные вопросы"
+ * Обрабатывает нажатия на кнопки вопросов и показывает соответствующий контент
+ */
+function initPopularQuestions() {
+    const questionButtons = document.querySelectorAll('.popular-questions-section .question-button');
+    const questionImage = document.querySelector('.question-image');
+    const questionContents = document.querySelectorAll('.question-content');
+    
+    // Добавляем обработчики для каждой кнопки
+    questionButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Получаем ID вопроса из атрибута data-question
+            const questionId = this.getAttribute('data-question');
+            
+            // Снимаем активный класс со всех кнопок
+            questionButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Добавляем активный класс нажатой кнопке
+            this.classList.add('active');
+            
+            // Скрываем картинку
+            if (questionImage) {
+                questionImage.classList.remove('active');
+            }
+            
+            // Скрываем все контенты вопросов
+            questionContents.forEach(content => content.classList.remove('active'));
+            
+            // Показываем нужный контент
+            const targetContent = document.getElementById(questionId);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+        });
+    });
+}
+
+function initCalendar() {
+    const calendarEl = document.getElementById('calendar');
+    if (!calendarEl) return;
+
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        initialDate: '2025-06-01',
+        headerToolbar: false,
+        locale: 'ru',
+        height: 'auto',
+        expandRows: true,
+        fixedWeekCount: false,
+        dayCellDidMount: function(info) {
+            const date = info.date;
+            const day = date.getDate();
+            const month = date.getMonth() + 1;
+            const year = date.getFullYear();
+            // Июньские праздники
+            if (year === 2025 && month === 6) {
+                if (day === 1) {
+                    const dayNumberEl = info.el.querySelector('.fc-daygrid-day-number');
+                    dayNumberEl.classList.add('holiday-circle', 'green-circle');
+                    dayNumberEl.setAttribute('data-holiday', 'День защиты детей');
+                    dayNumberEl.style.cursor = 'default';
+                }
+            }
+        },
+        events: [
+            // Прием документов (длительные события, с понедельника по воскресенье)
+            {
+                title: 'Прием документов',
+                start: '2025-06-02',
+                end: '2025-06-09',
+                color: '#4285F4',
+                classNames: ['thin-event']
+            },
+            {
+                title: 'Прием документов',
+                start: '2025-06-09',
+                end: '2025-06-16',
+                color: '#4285F4',
+                classNames: ['thin-event']
+            },
+            {
+                title: 'Прием документов',
+                start: '2025-06-16',
+                end: '2025-06-23',
+                color: '#4285F4',
+                classNames: ['thin-event']
+            },
+            {
+                title: 'Прием документов',
+                start: '2025-06-23',
+                end: '2025-06-30',
+                color: '#4285F4',
+                classNames: ['thin-event']
+            },
+            // Отдельные события (с астериском)
+            {
+                title: 'День открытых дверей',
+                start: '2025-06-05T10:00:00',
+                display: 'background',
+                classNames: ['event-with-asterisk']
+            },
+            {
+                title: 'Мастер-класс для абитуриентов',
+                start: '2025-06-12T14:30:00',
+                display: 'background',
+                classNames: ['event-with-asterisk']
+            },
+            {
+                title: 'Встреча с деканами',
+                start: '2025-06-20T11:00:00',
+                display: 'background',
+                classNames: ['event-with-asterisk']
+            },
+            {
+                title: 'Семинар по поступлению',
+                start: '2025-06-25T15:00:00',
+                display: 'background',
+                classNames: ['event-with-asterisk']
+            }
+        ],
+        eventClick: function(info) {
+            // Prevent default navigation action
+            info.jsEvent.preventDefault();
+            return false;
+        }
+    });
+    calendar.render();
+    setTimeout(() => {
+        addAsterisksToEvents(calendar);
+        addTooltipsToCalendarDays(calendar);
+        
+        // Disable all links in the calendar after rendering
+        disableCalendarLinks();
+    }, 100);
+    
+    function disableCalendarLinks() {
+        // Find all links and clickable elements in the calendar
+        const calendarLinks = calendarEl.querySelectorAll('a');
+        calendarLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            });
+            link.style.cursor = 'default';
+            link.removeAttribute('href');
+        });
+    }
+    
+    function addAsterisksToEvents(calendar) {
+        const events = calendar.getEvents();
+        const eventDates = {};
+        events.forEach(event => {
+            if (event.display === 'background' && event.classNames.includes('event-with-asterisk')) {
+                const eventDate = event.startStr.split('T')[0];
+                eventDates[eventDate] = true;
+            }
+        });
+        Object.keys(eventDates).forEach(date => {
+            const dateCell = document.querySelector(`.fc-daygrid-day[data-date="${date}"]`);
+            if (dateCell && !dateCell.classList.contains('has-asterisk')) {
+                dateCell.classList.add('has-asterisk');
+                if (!dateCell.querySelector('.event-asterisk')) {
+                    const asterisk = document.createElement('span');
+                    asterisk.className = 'event-asterisk';
+                    asterisk.textContent = '*';
+                    asterisk.title = 'Есть события в этот день';
+                    dateCell.appendChild(asterisk);
+                }
+            }
+        });
+    }
+    function addTooltipsToCalendarDays(calendar) {
+        const events = calendar.getEvents();
+        const eventsByDate = {};
+        const holidayDates = {
+            '2025-06-01': 'День защиты детей'
+        };
+        events.forEach(event => {
+            const eventStart = event.start;
+            if (!eventStart) return;
+            const dateStr = eventStart.toISOString().split('T')[0];
+            if (!eventsByDate[dateStr]) {
+                eventsByDate[dateStr] = [];
+            }
+            eventsByDate[dateStr].push({
+                title: event.title,
+                type: event.classNames && event.classNames.includes('thin-event') ? 'session' : 'regular',
+                time: eventStart.toTimeString().substring(0, 5)
+            });
+        });
+        Object.keys(holidayDates).forEach(dateStr => {
+            if (!eventsByDate[dateStr]) {
+                eventsByDate[dateStr] = [];
+            }
+            eventsByDate[dateStr].unshift({
+                title: holidayDates[dateStr],
+                type: 'holiday'
+            });
+        });
+        Object.keys(eventsByDate).forEach(dateStr => {
+            const dayEvents = eventsByDate[dateStr];
+            if (dayEvents.length > 0) {
+                const dateCell = document.querySelector(`.fc-daygrid-day[data-date="${dateStr}"]`);
+                if (dateCell) {
+                    dateCell.classList.add('has-tooltip');
+                    const tooltip = document.createElement('div');
+                    tooltip.className = 'day-tooltip';
+                    const date = new Date(dateStr);
+                    const formattedDate = date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+                    const tooltipHeader = document.createElement('h4');
+                    tooltipHeader.textContent = `События на ${formattedDate}`;
+                    tooltip.appendChild(tooltipHeader);
+                    const eventsList = document.createElement('ul');
+                    dayEvents.forEach(event => {
+                        const eventItem = document.createElement('li');
+                        eventItem.className = `${event.type}-event`;
+                        if (event.time) {
+                            eventItem.textContent = `${event.title} (${event.time})`;
+                        } else {
+                            eventItem.textContent = event.title;
+                        }
+                        eventsList.appendChild(eventItem);
+                    });
+                    tooltip.appendChild(eventsList);
+                    dateCell.appendChild(tooltip);
+                    dateCell.addEventListener('mouseenter', function() {
+                        tooltip.style.visibility = 'hidden';
+                        tooltip.style.display = 'block';
+                        const tooltipRect = tooltip.getBoundingClientRect();
+                        const cellRect = dateCell.getBoundingClientRect();
+                        const calendarRect = document.getElementById('calendar').getBoundingClientRect();
+                        const viewportHeight = window.innerHeight;
+                        const viewportWidth = window.innerWidth;
+                        const isInLowerHalf = cellRect.top > calendarRect.top + (calendarRect.height / 2);
+                        let position = 'bottom';
+                        if (isInLowerHalf || (viewportHeight - cellRect.bottom < tooltipRect.height && cellRect.top > tooltipRect.height)) {
+                            position = 'top';
+                        }
+                        let alignment = 'center';
+                        if (cellRect.left + (tooltipRect.width / 2) > viewportWidth) {
+                            alignment = 'right';
+                        } else if (cellRect.left - (tooltipRect.width / 2) < 0) {
+                            alignment = 'left';
+                        }
+                        tooltip.classList.remove('position-top', 'position-bottom', 'align-left', 'align-center', 'align-right');
+                        tooltip.classList.add(`position-${position}`, `align-${alignment}`);
+                        tooltip.style.visibility = 'visible';
+                    });
+                    dateCell.addEventListener('mouseleave', function() {
+                        tooltip.style.display = 'none';
+                    });
+                }
+            }
+        });
+    }
+    window.addEventListener('resize', function() {
+        setTimeout(() => {
+            document.querySelectorAll('.day-tooltip').forEach(tooltip => tooltip.remove());
+            addAsterisksToEvents(calendar);
+            addTooltipsToCalendarDays(calendar);
+        }, 100);
+    });
+    const prevMonthBtn = document.getElementById('prevMonth');
+    const nextMonthBtn = document.getElementById('nextMonth');
+    const currentMonthEl = document.getElementById('currentMonth');
+    if (prevMonthBtn && nextMonthBtn && currentMonthEl) {
+        prevMonthBtn.addEventListener('click', function() {
+            calendar.prev();
+            updateMonthDisplay();
+            setTimeout(() => {
+                document.querySelectorAll('.day-tooltip').forEach(tooltip => tooltip.remove());
+                addAsterisksToEvents(calendar);
+                addTooltipsToCalendarDays(calendar);
+            }, 100);
+        });
+        nextMonthBtn.addEventListener('click', function() {
+            calendar.next();
+            updateMonthDisplay();
+            setTimeout(() => {
+                document.querySelectorAll('.day-tooltip').forEach(tooltip => tooltip.remove());
+                addAsterisksToEvents(calendar);
+                addTooltipsToCalendarDays(calendar);
+            }, 100);
+        });
+        function updateMonthDisplay() {
+            const date = calendar.getDate();
+            const locale = 'ru';
+            const monthName = date.toLocaleString(locale, { month: 'long' });
+            const year = date.getFullYear();
+            let formattedMonth = monthName.charAt(0).toUpperCase() + monthName.slice(1);
+            currentMonthEl.textContent = `${formattedMonth} ${year}`;
+        }
+        updateMonthDisplay();
     }
 }
 
