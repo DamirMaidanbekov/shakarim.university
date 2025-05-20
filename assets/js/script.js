@@ -1,11 +1,5 @@
 // Ждем полной загрузки DOM перед выполнением JavaScript
 document.addEventListener('DOMContentLoaded', function() {
-    // Инициализация мобильного меню аудитории
-    initMobileAudienceMenu();
-    
-    // Инициализация мобильного мега-меню
-    initMobileMegaMenu();
-
     // ------------- ИНИЦИАЛИЗАЦИЯ СЛАЙДЕРА -------------
     // Получаем все слайды
     const slides = document.querySelectorAll('.slide');
@@ -47,76 +41,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // Автоматическое переключение слайдов каждые 5 секунд
     setInterval(() => goToSlide(currentSlide + 1), 5000);
     
-    // ------------- МЕГА-МЕНЮ -------------
-    // Переключение видимости мега-меню при клике на кнопку
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menuContainer = document.querySelector('.menu-container');
-    
-    menuToggle.addEventListener('click', function() {
-        menuContainer.classList.toggle('active');
-    });
-    
-    // Закрытие мега-меню при клике вне его области
-    document.addEventListener('click', function(event) {
-        if (!menuContainer.contains(event.target) && menuContainer.classList.contains('active')) {
-            menuContainer.classList.remove('active');
-        }
-    });
-    
-    // ------------- ФОРМА ПОИСКА -------------
-    // Переключение видимости формы поиска
-    const searchBtn = document.querySelector('.search-btn');
-    
-    searchBtn.addEventListener('click', function(e) {
-        // Предотвращаем всплытие события, чтобы не сработал обработчик документа
-        e.stopPropagation();
-        document.querySelector('.search-container').classList.toggle('search-active');
-    });
-    
-    // Закрытие формы поиска при клике вне её области
-    document.addEventListener('click', function(event) {
-        if (!document.querySelector('.search-container').contains(event.target)) {
-            document.querySelector('.search-container').classList.remove('search-active');
-        }
-    });
-    
-    // ------------- ВЫБОР ЯЗЫКА -------------
-    // Переключение выпадающего списка языков
-    const langBtn = document.querySelector('.lang-btn');
-    
-    langBtn.addEventListener('click', function(e) {
-        // Предотвращаем всплытие события
-        e.stopPropagation();
-        document.querySelector('.language-selector').classList.toggle('lang-active');
-    });
-    
-    // Закрытие списка языков при клике вне его области
-    document.addEventListener('click', function(event) {
-        if (!document.querySelector('.language-selector').contains(event.target)) {
-            document.querySelector('.language-selector').classList.remove('lang-active');
-        }
-    });
-    
     // ------------- КНОПКА ПРОКРУТКИ ВВЕРХ -------------
-    // Показ/скрытие кнопки "наверх" при прокрутке
     const scrollTopBtn = document.getElementById('scrollTopBtn');
-    
-    window.addEventListener('scroll', function() {
-        // Показываем кнопку, если прокрутка > 300px
-        if (window.pageYOffset > 300) {
-            scrollTopBtn.classList.add('visible');
-        } else {
-            scrollTopBtn.classList.remove('visible');
-        }
-    });
-    
-    // Плавная прокрутка наверх при клике на кнопку
-    scrollTopBtn.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
         });
-    });
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
     
     // ------------- ИНИЦИАЛИЗАЦИЯ ДОПОЛНИТЕЛЬНЫХ МОДУЛЕЙ -------------
     // Эффект при наведении на блоки школ
@@ -127,41 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Инициализация календаря
     initCalendar();
-
-    // Инициализация поведения шапки при прокрутке
-    initHeaderScroll();
-        });
-
-/**
- * Функция управления шапкой сайта при прокрутке
- * Скрывает верхнюю часть шапки при прокрутке вниз и показывает при прокрутке вверх
- */
-function initHeaderScroll() {
-    const header = document.querySelector('.site-header');
-    const topHeader = document.querySelector('.top-header');
-    let lastScrollTop = 0;
-    
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-        // Если прокрутили более 100px
-        if (scrollTop > 100) {
-            // Прокрутка вниз
-            if (scrollTop > lastScrollTop) {
-                header.classList.add('hide-top-header');
-            } 
-            // Прокрутка вверх
-            else {
-                header.classList.remove('hide-top-header');
-            }
-                    } else {
-            header.classList.remove('hide-top-header');
-        }
-        
-        // Сохраняем текущее положение прокрутки для следующего вызова
-        lastScrollTop = scrollTop;
-    });
-}
+});
 
 /**
  * Инициализация и настройка FullCalendar
@@ -578,8 +485,8 @@ function initNewsItems() {
                 otherItem.style.opacity = '';
                 otherItem.style.transform = '';
             });
-                });
-            });
+        });
+    });
 }
 
 /**
@@ -609,7 +516,7 @@ function initStatsCounter() {
             
             if (progress < 1) {
                 window.requestAnimationFrame(animation);
-                            }
+            }
         }
         
         window.requestAnimationFrame(animation);
@@ -645,8 +552,8 @@ function initStatsCounter() {
                             
     // Проверяем при начальной загрузке
     checkScroll();
-                            }
-                            
+}
+
 /**
  * Инициализирует эффекты при наведении на блоки школ
  */
@@ -667,11 +574,11 @@ function initSchoolsHover() {
         school.addEventListener('mouseleave', function() {
             schools.forEach(s => {
                 s.style.opacity = '';
-                        });
-        });
             });
-        }
-        
+        });
+    });
+}
+
 /**
  * Инициализирует анимацию при прокрутке новостных блоков
  * Новости открываются при достижении середины экрана
@@ -705,341 +612,4 @@ function initNewsScrollAnimation() {
     
     // Обновление при прокрутке
     window.addEventListener('scroll', updateNewsAnimation);
-}
-
-/**
- * Инициализирует мобильное меню аудитории (верхнее меню) для мобильных устройств
- * Управляет показом/скрытием меню с пунктами "Абитуриентам", "Обучающимся" и т.д.
- */
-function initMobileAudienceMenu() {
-    const mobileAudienceBtn = document.querySelector('.mobile-audience-btn');
-    const mainNav = document.querySelector('.main-nav');
-    const body = document.body;
-    
-    // Если кнопка не найдена, прекращаем выполнение
-    if (!mobileAudienceBtn) return;
-    
-    // Создаем элемент затемненной подложки, если его нет
-    let backdrop = document.querySelector('.mobile-menu-backdrop');
-    if (!backdrop) {
-        backdrop = document.createElement('div');
-        backdrop.className = 'mobile-menu-backdrop';
-        document.body.appendChild(backdrop);
-    }
-    
-    // Функция для открытия мобильного меню
-    function openMobileMenu() {
-        mainNav.classList.add('mobile-open');
-        backdrop.classList.add('active');
-        body.classList.add('mobile-menu-open');
-        
-        // Меняем иконку на крестик
-        const icon = mobileAudienceBtn.querySelector('i');
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-    }
-    
-    // Функция для закрытия мобильного меню
-    function closeMobileMenu() {
-        mainNav.classList.remove('mobile-open');
-        backdrop.classList.remove('active');
-        body.classList.remove('mobile-menu-open');
-        
-        // Меняем иконку на исходную
-        const icon = mobileAudienceBtn.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-    }
-    
-    // Обработчик нажатия на кнопку мобильного меню
-    mobileAudienceBtn.addEventListener('click', function() {
-        if (mainNav.classList.contains('mobile-open')) {
-            closeMobileMenu();
-        } else {
-            openMobileMenu();
-        }
-    });
-    
-    // Закрываем меню при клике на подложку
-    backdrop.addEventListener('click', closeMobileMenu);
-    
-    // Закрываем меню при клике по пункту меню
-    mainNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
-    });
-    
-    // Закрываем меню при скролле
-    window.addEventListener('scroll', function() {
-        if (mainNav.classList.contains('mobile-open')) {
-            closeMobileMenu();
-        }
-    });
-    
-    // Закрываем меню при изменении размера окна
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768 && mainNav.classList.contains('mobile-open')) {
-            closeMobileMenu();
-        }
-    });
-}
-
-/**
- * Инициализирует мобильное мега-меню с вертикальным раскрытием подкатегорий
- * Управляет показом/скрытием подкатегорий и под-подкатегорий на мобильных устройствах
- */
-function initMobileMegaMenu() {
-    // Глобальная переменная для хранения состояния инициализации
-    let menuInitialized = false;
-    
-    // Проверяем размер экрана при загрузке страницы
-    checkMobileMenu();
-    
-    // Также проверяем при изменении размера окна
-    window.addEventListener('resize', checkMobileMenu);
-    
-    // Функция проверки мобильного размера экрана и настройки обработчиков
-    function checkMobileMenu() {
-        // Проверяем, что мы на мобильном устройстве
-        const isMobile = window.innerWidth <= 768;
-        
-        // Находим элементы меню
-        const categoryItems = document.querySelectorAll('.category-item.has-children');
-        const subcategoryItems = document.querySelectorAll('.subcategory.has-children');
-        const subsubcategoryItems = document.querySelectorAll('.subsubcategory.has-children');
-        
-        // Функция для закрытия всех меню
-        function closeAllMenus() {
-            // Закрываем все категории
-            categoryItems.forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Закрываем все подкатегории
-            subcategoryItems.forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Закрываем все подподкатегории
-            subsubcategoryItems.forEach(item => {
-                item.classList.remove('active');
-            });
-        }
-        
-        // Если не мобильное устройство, удаляем все обработчики и активные классы
-        if (!isMobile) {
-            // Если уже было инициализировано меню, очищаем его
-            if (menuInitialized) {
-                // Закрываем все активные меню
-                closeAllMenus();
-                
-                // Удаляем обработчики
-                categoryItems.forEach(item => {
-                    const link = item.querySelector('.category-link');
-                    if (link) {
-                        link.removeEventListener('click', categoryClickHandler);
-                    }
-                });
-                
-                subcategoryItems.forEach(item => {
-                    const link = item.querySelector('.subcategory-link');
-                    if (link) {
-                        link.removeEventListener('click', subcategoryClickHandler);
-                    }
-                });
-                
-                subsubcategoryItems.forEach(item => {
-                    const link = item.querySelector('.subsubcategory-link');
-                    if (link) {
-                        link.removeEventListener('click', subsubcategoryClickHandler);
-                    }
-                });
-                
-                // Удаляем глобальный обработчик
-                document.removeEventListener('click', documentClickHandler);
-                
-                menuInitialized = false;
-            }
-            return;
-        }
-        
-        // Если уже инициализировано, не делаем этого повторно
-        if (menuInitialized) return;
-        
-        // Закрываем все меню при инициализации
-        closeAllMenus();
-        
-        // Настраиваем обработчики для мобильного устройства
-        categoryItems.forEach(item => {
-            const link = item.querySelector('.category-link');
-            if (link) {
-                // Удаляем предыдущий обработчик, чтобы избежать дублирования
-                link.removeEventListener('click', categoryClickHandler);
-                
-                // Добавляем новый обработчик
-                link.addEventListener('click', categoryClickHandler);
-            }
-        });
-        
-        subcategoryItems.forEach(item => {
-            const link = item.querySelector('.subcategory-link');
-            if (link) {
-                // Удаляем предыдущий обработчик, чтобы избежать дублирования
-                link.removeEventListener('click', subcategoryClickHandler);
-                
-                // Добавляем новый обработчик
-                link.addEventListener('click', subcategoryClickHandler);
-            }
-        });
-        
-        // Добавляем обработчики для подподкатегорий
-        subsubcategoryItems.forEach(item => {
-            const link = item.querySelector('.subsubcategory-link');
-            if (link) {
-                // Удаляем предыдущий обработчик, чтобы избежать дублирования
-                link.removeEventListener('click', subsubcategoryClickHandler);
-                
-                // Добавляем новый обработчик
-                link.addEventListener('click', subsubcategoryClickHandler);
-            }
-        });
-        
-        // Добавляем обработчик клика для закрытия меню при клике вне меню
-        document.addEventListener('click', documentClickHandler);
-        
-        menuInitialized = true;
-    }
-    
-    // Обработчик клика для категорий
-    function categoryClickHandler(event) {
-        // Предотвращаем переход по ссылке
-        event.preventDefault();
-        
-        // Получаем родительский элемент (li.category-item)
-        const item = this.closest('.category-item');
-        
-        // Проверяем, активен ли уже этот пункт
-        const isActive = item.classList.contains('active');
-        
-        // Закрываем все открытые подменю того же уровня если нажали на другой пункт
-        // или сохраняем текущее состояние, если нажали на тот же пункт
-        if (!isActive) {
-            const allItems = document.querySelectorAll('.category-item.has-children');
-            allItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.classList.remove('active');
-                    
-                    // Закрываем все подкатегории внутри закрытой категории
-                    const nestedSubcategories = otherItem.querySelectorAll('.subcategory.has-children');
-                    nestedSubcategories.forEach(subItem => {
-                        subItem.classList.remove('active');
-                    });
-                }
-            });
-        } else {
-            // Если закрываем активный пункт - закрываем все вложенные подкатегории
-            const nestedSubcategories = item.querySelectorAll('.subcategory.has-children');
-            nestedSubcategories.forEach(subItem => {
-                subItem.classList.remove('active');
-            });
-        }
-        
-        // Переключаем состояние текущего пункта
-        item.classList.toggle('active');
-    }
-    
-    // Обработчик клика для подкатегорий
-    function subcategoryClickHandler(event) {
-        // Предотвращаем переход по ссылке
-        event.preventDefault();
-        
-        // Получаем родительский элемент (li.subcategory)
-        const item = this.closest('.subcategory');
-        
-        // Проверяем, активен ли уже этот пункт
-        const isActive = item.classList.contains('active');
-        
-        // Закрываем все открытые под-подменю на этом уровне если нажали на другой пункт
-        // или сохраняем текущее состояние, если нажали на тот же пункт
-        if (!isActive) {
-            const parentSubcategory = item.closest('.subcategories');
-            if (parentSubcategory) {
-                parentSubcategory.querySelectorAll('.subcategory.has-children').forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('active');
-                        
-                        // Закрываем все подподкатегории внутри закрытой подкатегории
-                        const nestedSubsubcategories = otherItem.querySelectorAll('.subsubcategory');
-                        nestedSubsubcategories.forEach(subsubItem => {
-                            subsubItem.classList.remove('active');
-                        });
-                    }
-                });
-            }
-        } else {
-            // Если закрываем активный пункт - закрываем все вложенные подподкатегории
-            const nestedSubsubcategories = item.querySelectorAll('.subsubcategory');
-            nestedSubsubcategories.forEach(subsubItem => {
-                subsubItem.classList.remove('active');
-            });
-        }
-        
-        // Переключаем состояние текущего пункта
-        item.classList.toggle('active');
-    }
-
-    // Обработчик клика для подподкатегорий
-    function subsubcategoryClickHandler(event) {
-        // Предотвращаем переход по ссылке
-        event.preventDefault();
-        
-        // Получаем родительский элемент
-        const item = this.closest('.subsubcategory');
-        
-        // Проверяем, активен ли уже этот пункт
-        const isActive = item.classList.contains('active');
-        
-        // Закрываем все открытые элементы того же уровня
-        if (!isActive) {
-            const parentSubsubcategory = item.closest('.subsubcategories');
-            if (parentSubsubcategory) {
-                parentSubsubcategory.querySelectorAll('.subsubcategory.has-children').forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('active');
-                    }
-                });
-            }
-        }
-        
-        // Переключаем состояние текущего пункта
-        item.classList.toggle('active');
-    }
-
-    // Глобальный обработчик клика для закрытия меню
-    function documentClickHandler(event) {
-        // Проверяем, был ли клик вне меню
-        const megaMenu = document.querySelector('.mega-menu');
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        
-        if (megaMenu && !megaMenu.contains(event.target) && 
-            mobileMenuBtn && !mobileMenuBtn.contains(event.target)) {
-            
-            // Закрываем все открытые категории
-            const openCategories = document.querySelectorAll('.category-item.active');
-            openCategories.forEach(category => {
-                category.classList.remove('active');
-            });
-            
-            // Закрываем все открытые подкатегории
-            const openSubcategories = document.querySelectorAll('.subcategory.active');
-            openSubcategories.forEach(subcategory => {
-                subcategory.classList.remove('active');
-            });
-            
-            // Закрываем все открытые подподкатегории
-            const openSubsubcategories = document.querySelectorAll('.subsubcategory.active');
-            openSubsubcategories.forEach(subsubcategory => {
-                subsubcategory.classList.remove('active');
-            });
-        }
-    }
 } 
