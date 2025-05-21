@@ -39,7 +39,7 @@
                     <h3>О нас</h3>
                     <ul>
                         <li><a href="#">Об университете</a></li>
-                        <li><a href="#">Наша история</a></li>
+                        <li><a href="history-university">Наша история</a></li>
                         <li><a href="#">Организационная структура</a></li>
                         <li><a href="#">Руководство университета</a></li>
                         <li><a href="#">Государственные закупки</a></li>
@@ -51,6 +51,7 @@
                 <div class="menu-category">
                     <h3>Поступление</h3>
                     <ul>
+                        <li><a href="applicants">Абитуриентам</a></li>
                         <li><a href="#">Как подать документы</a></li>
                         <li><a href="#">Необходимые документы</a></li>
                         <li><a href="#">Важные даты</a></li>
@@ -134,7 +135,7 @@
                     <h3>Познакомьтесь с университетом</h3>
                     <ul>
                         <li><a href="#">Виртуальный тур</a></li>
-                        <li><a href="#">Shakarim Museum</a></li>
+                        <li><a href="shakarim-museum">Shakarim Museum</a></li>
                         <li><a href="#">Фотогалерея</a></li>
                         <li><a href="#">Библиотека</a></li>
                         <li><a href="#">Новости университета</a></li>

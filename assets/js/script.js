@@ -1,4 +1,3 @@
-// Ждем полной загрузки DOM перед выполнением JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     // ------------- ИНИЦИАЛИЗАЦИЯ СЛАЙДЕРА -------------
     // Получаем все слайды

@@ -102,8 +102,6 @@ ob_start();
     </div>
 </div>
 
-<div style="height: 1000px;"></div>
-
 <?php
 
 $content = ob_get_clean();

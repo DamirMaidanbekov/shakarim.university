@@ -55,18 +55,6 @@ body {
     width: 100%;
 }
 
-/* Базовые стили для ссылок */
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: var(--transition);
-}
-
-/* Убираем маркеры у списков по умолчанию */
-ul {
-    list-style: none;
-}
-
 /* 
  * Стили для всех заголовков 
  * Используем Open Sans для более читаемых заголовков
@@ -78,53 +66,11 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--secondary-color);
 }
 
-/* 
- * Стили для заголовков h2 (обычно заголовки секций)
- * Центрируем и добавляем декоративный элемент
- */
-h2 {
-    margin: 40px 0 30px;
-    text-align: center;
-    font-size: 34px;
-    font-weight: 600;
-    position: relative;
-}
-
-/* Декоративная линия под заголовками h2 */
-h2:after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: var(--accent-color);
-    margin: 15px auto 0;
-}
-
-/* Базовые стили для кнопок */
-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: 'Roboto', Arial, sans-serif;
-    transition: var(--transition);
-}
-
 /* Отступы для основных секций сайта */
 section {
     padding: 60px 0;
 }
 
-/* Стили для параграфов */
-p {
-    margin-bottom: 1em;
-    color: var(--light-text);
-}
-
-/* Максимальная ширина для изображений и сохранение пропорций */
-img {
-    max-width: 100%;
-    height: auto;
-}
 
 /* JavaScript классы для скрытия/показа элементов */
 .search-active .search-form {

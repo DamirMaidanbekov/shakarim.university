@@ -1,4 +1,3 @@
-// Ждем полной загрузки DOM перед выполнением JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     // Инициализация мобильного меню аудитории
     initMobileAudienceMenu();

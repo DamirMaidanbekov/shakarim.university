@@ -1,7 +1,7 @@
 footer.site-footer {
     background: #00427A;
     color: #fff;
-    padding: 48px 0 0 0;
+    padding: 48px 0 48px 0;
     width: 100%;
 }
 .footer-container {
@@ -89,3 +89,84 @@ footer.site-footer {
         margin-bottom: 18px;
     }
 } 
+/* Contact Button */
+.contact-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.contact-button i {
+    font-size: 24px;
+}
+
+.contact-button:hover {
+    transform: translateY(-5px) rotate(10deg);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Scroll to Top Button */
+.scroll-top-button {
+    position: fixed;
+    bottom: 30px;
+    right: 100px;
+    width: 50px;
+    height: 50px;
+    background: white;
+    color: var(--primary-color);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    transition: var(--transition);
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.scroll-top-button i {
+    font-size: 20px;
+}
+
+.scroll-top-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-5px);
+}
+
+.scroll-top-button.visible {
+    opacity: 1;
+    visibility: visible;
+}
+@media (max-width: 576px) {
+    
+    .contact-button, .scroll-top-button {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .contact-button {
+        bottom: 70px;
+        right: 15px;
+    }
+    
+    .scroll-top-button {
+        bottom: 15px;
+        right: 15px;
+    }
+}

@@ -82,8 +82,6 @@ ob_start();
     <p>В 2021 г. создан интеллектуальный центр «Шакарим жастары».</p>
 </div>
 
-<div style="height: 1000px;"></div>
-
 <?php
 
 $content = ob_get_clean();

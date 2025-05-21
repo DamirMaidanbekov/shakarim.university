@@ -11,6 +11,7 @@
             <ul>
                 <li><a href="#">Нормативные документы</a></li>
                 <li><a href="#">Корпоративное управление</a></li>
+                <li><a href="corporate-documents">Корпоративные документы</a></li>
                 <li><a href="#">Академическая политика</a></li>
                 <li><a href="#">Внутренняя система качества</a></li>
                 <li><a href="#">Утверждённые формы дипломов</a></li>
@@ -29,6 +30,8 @@
                 <li><a href="#">Summer Semester</a></li>
                 <li><a href="#">Platonus</a></li>
                 <li><a href="#">Shakarim hub</a></li>
+                <li><a href="template">template</a></li>
+                <li><a href="template-structure">template-structure</a></li>
             </ul>
         </div>
         <div class="footer-col">
@@ -42,3 +45,13 @@
         </div>
     </div>
 </footer>
+
+<!-- Contact Button -->
+<a href="tel:+77222313175" class="contact-button">
+    <i class="fas fa-phone"></i>
+</a>
+
+<!-- Scroll to Top Button -->
+<button id="scrollTopBtn" class="scroll-top-button">
+    <i class="fas fa-arrow-up"></i>
+</button>

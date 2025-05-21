@@ -1,7 +1,3 @@
-/**
- * Shakarim University Header Scripts
- * Handles menu toggle, scroll behavior, and mobile interactions
- */
 document.addEventListener('DOMContentLoaded', function() {
     // DOM elements
     const menuToggle = document.getElementById('menuToggle');

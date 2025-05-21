@@ -25,16 +25,6 @@
 
     <?php include 'footer.php'; ?>
 
-    <!-- Contact Button -->
-    <a href="tel:+77222313175" class="contact-button">
-        <i class="fas fa-phone"></i>
-    </a>
-
-    <!-- Scroll to Top Button -->
-    <button id="scrollTopBtn" class="scroll-top-button">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
     <div class="mobile-menu-backdrop"></div>
 
     <!-- Base scripts -->
