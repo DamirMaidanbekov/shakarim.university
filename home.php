@@ -268,7 +268,7 @@ ob_start();
         </div>
         
         <div class="news-all-btn-container">
-            <a href="#" class="news-all-btn">Все новости</a>
+            <a href="news/index" class="news-all-btn">Все новости</a>
         </div>
     </div>
 </section>
@@ -289,18 +289,18 @@ ob_start();
             <div class="announcements-list">
                 <div class="announcement-item">
                     <div class="announcement-date">7 мая</div>
-                    <a href="https://shakarim.edu.kz/ru/announcement/index" class="announcement-title">Научно-практическая конференция "Искусственный интеллект и машинное обучение в современных исследованиях"</a>
+                    <a href="announcements/all-announcements" class="announcement-title">Научно-практическая конференция "Искусственный интеллект и машинное обучение в современных исследованиях"</a>
                 </div>
                 <div class="announcement-item">
                     <div class="announcement-date">14 мая</div>
-                    <a href="https://shakarim.edu.kz/ru/announcement/index" class="announcement-title">Открытая лекция "Инновационные биотехнологии и их применение в сельском хозяйстве и медицине"</a>
+                    <a href="announcements/all-announcements" class="announcement-title">Открытая лекция "Инновационные биотехнологии и их применение в сельском хозяйстве и медицине"</a>
                 </div>
                 <div class="announcement-item">
                     <div class="announcement-date">15 мая</div>
-                    <a href="https://shakarim.edu.kz/ru/announcement/index" class="announcement-title">Научно-методический семинар "Современные подходы в психологии обучения: когнитивные и эмоциональные аспекты образовательного процесса"</a>
+                    <a href="announcements/all-announcements" class="announcement-title">Научно-методический семинар "Современные подходы в психологии обучения: когнитивные и эмоциональные аспекты образовательного процесса"</a>
                 </div>
                 <div class="show-more-container">
-                    <a href="https://shakarim.edu.kz/ru/announcement/index" class="show-more-btn">Показать еще</a>
+                    <a href="announcements/all-announcements" class="show-more-btn">Показать еще</a>
                 </div>
             </div>
         </div>

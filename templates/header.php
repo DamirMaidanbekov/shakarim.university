@@ -138,7 +138,7 @@
                         <li><a href="shakarim-museum">Shakarim Museum</a></li>
                         <li><a href="#">Фотогалерея</a></li>
                         <li><a href="#">Библиотека</a></li>
-                        <li><a href="#">Новости университета</a></li>
+                        <li><a href="news/index">Новости университета</a></li>
                         <li><a href="#">Брошюры и материалы</a></li>
                     </ul>
                 </div>
