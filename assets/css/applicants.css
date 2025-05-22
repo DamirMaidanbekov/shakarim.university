@@ -58,18 +58,6 @@ body {
     width: 100%;
 }
 
-/* Базовые стили для ссылок */
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: var(--transition);
-}
-
-/* Убираем маркеры у списков по умолчанию */
-ul {
-    list-style: none;
-}
-
 /* 
  * Стили для всех заголовков 
  * Используем Open Sans для более читаемых заголовков

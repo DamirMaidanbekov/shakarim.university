@@ -7,7 +7,7 @@ ob_start();
 
 <!-- BREADCRUMB -->
 <div class="custom-breadcrumb">
-    <span>Главная страница</span> <span class="breadcrumb-separator">/</span> <span>Корпоративные документы</span>
+    <span>Главная страница</span> <span class="breadcrumb-separator">/</span> <span>template</span>
         </div>
         
 <!-- ЦЕНТРАЛЬНЫЙ БЛОК -->
@@ -60,8 +60,6 @@ ob_start();
     <div id="test-image-block" style="width:100%; min-height:320px; display:none; margin-bottom:24px;"></div>
     <iframe src="media/blank.pdf" width="100%" height="1500" style="border:1px solid #d0d7e2; margin-top:0; border-radius:8px; background:#fff;"></iframe>
 </div>
-
-<div style="height: 1000px;"></div>
 
 <?php
 

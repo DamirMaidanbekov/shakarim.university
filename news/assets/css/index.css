@@ -1,0 +1,544 @@
+/* Общие стили для всего сайта */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Импорт шрифтов с Google Fonts (Roboto для основного текста, Open Sans для заголовков) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@400;500;600;700&display=swap');
+
+/* 
+ * CSS-переменные для единообразия стилей по всему сайту 
+ * Использование переменных позволяет легко менять цветовую схему и другие параметры
+ */
+:root {
+    --primary-color: #006DB6;         /* Основной синий цвет университета */
+    --secondary-color: #00427A;       /* Темно-синий цвет для акцентов */
+    --accent-color: #FFB800;          /* Акцентный золотой цвет */
+    --text-color: #212B36;            /* Основной цвет текста (темный) */
+    --light-text: #6B7280;            /* Светлый цвет для параграфов */
+    --background-color: #FFFFFF;      /* Цвет фона (белый) */
+    --section-bg: #F7F9FC;            /* Светлый фон для секций */
+    --border-color: #E5E7EB;          /* Цвет границ */
+    --success-color: #10B981;         /* Зеленый цвет для успешных уведомлений */
+    --warning-color: #F59E0B;         /* Оранжевый для предупреждений */
+    --danger-color: #EF4444;          /* Красный для ошибок */
+    --container-width: 1280px;        /* Максимальная ширина контейнера */
+    --header-height: 80px;            /* Высота шапки сайта */
+    --border-radius: 8px;             /* Скругление углов */
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Тень для блоков */
+    --transition: all 0.3s ease;      /* Стандартное время перехода анимации */
+}
+
+/* 
+ * Базовые стили для тега body 
+ * Задаем основной шрифт, цвета и размеры для всего сайта
+ */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    font-size: 16px;
+    overflow-x: hidden;
+    background: url('assets/img/background.webp') top center repeat-y #f7f9fc;
+    background-size: 100% auto;
+    background-position: top center;
+}
+
+/* 
+ * Контейнер для центрирования содержимого
+ * Используется для ограничения максимальной ширины контента и центрирования на странице
+ */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+}
+
+/* 
+ * Стили для всех заголовков 
+ * Используем Open Sans для более читаемых заголовков
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans', Arial, sans-serif;
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+    color: var(--secondary-color);
+}
+
+/* Отступы для основных секций сайта */
+section {
+    padding: 60px 0;
+}
+
+/* Общее исправление для всех мобильных устройств */
+@media (max-width: 768px) {
+    /* Исправление общего контейнера */
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+    max-width: 100%;
+    }
+}
+
+/* Более специфичное исправление для маленьких экранов */
+@media (max-width: 480px) {
+    /* Полностью сбрасываем отступы для контейнера */
+    body {
+        overflow-x: hidden;
+}
+
+    .container {
+    padding: 0;
+        margin: 0 auto;
+    width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* Специфические стили для самых маленьких экранов для устранения отступа слева */
+@media (max-width: 425px) {
+    .container {
+    padding: 0;
+    width: 100%;
+        margin: 0 auto;
+}
+}
+
+.custom-breadcrumb {
+    width: 100%;
+    background: #eceff2;
+    color: #3a3a3a;
+    font-size: 18px;
+    padding: 18px 0 18px 48px;
+    margin: 0;
+    font-family: 'Open Sans', Arial, sans-serif;
+    letter-spacing: 0.01em;
+    border-radius: 0 0 0 0;
+}
+.custom-breadcrumb .breadcrumb-separator {
+    color: #b0b0b0;
+    margin: 0 8px;
+}
+
+.content {
+    width: 80%;
+    max-width: 1500px;
+    margin: 0 auto 0 auto;
+    background: #fff;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 40px 40px 32px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.content h2 {
+    margin-bottom: 32px;
+    color: #1a2a3a;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: left;
+    font-family: 'Open Sans', Arial, sans-serif;
+    width: 100%;
+}
+
+/* --- NEWS PAGE LAYOUT --- */
+.news-layout {
+    display: flex;
+  flex-direction: row;
+  gap: 32px;
+  width: 100%;
+    align-items: stretch;
+  min-height: 600px;
+}
+.news-main, .news-sidebar {
+    display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.news-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 24px;
+  height: 100%;
+}
+.news-item {
+  background: transparent;
+  color: #fff;
+  border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+  min-height: 200px;
+    display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+}
+.news-img {
+    width: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.85);
+    position: absolute;
+    top: 0;
+    left: 0;
+  right: 0;
+  bottom: 0;
+    z-index: 1;
+}
+.news-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.9) 100%);
+    z-index: 2;
+}
+.news-item-large {
+  grid-column: 1 / span 2;
+  min-height: 500px;
+}
+.news-item-large .news-img {
+  height: 100%;
+}
+.news-item-small {
+  min-height: 300px;
+}
+.news-item-small .news-img {
+  height: 100%;
+}
+.news-content {
+    position: relative;
+  z-index: 3;
+  padding: 32px 0 0 0;
+    display: flex;
+    flex-direction: column;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+.news-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  padding: 0 20px 0 32px;
+  z-index: 3;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  color: #fff;
+  text-decoration: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 3.2em;
+  max-height: 3.2em;
+  line-height: 1.6em;
+}
+.news-title:hover {
+    color: var(--accent-color);
+}
+.news-meta {
+  font-size: 1rem;
+  color: #fff;
+  opacity: 0.85;
+  z-index: 3;
+    display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 20px 18px 32px;
+}
+.news-item-large .news-title, .news-item-small .news-title {
+  margin-top: auto;
+  padding-top: 18px;
+}
+.news-sidebar {
+  flex: 0 0 25%;
+  min-width: 240px;
+    max-width: 340px;
+  background: var(--secondary-color);
+  color: #fff;
+  border-radius: 12px;
+  padding: 32px 24px 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  height: 100%;
+}
+.sidebar-block {
+  width: 100%;
+}
+.sidebar-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #fff;
+  letter-spacing: 0.01em;
+  padding-left: 8px;
+}
+.sidebar-categories {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sidebar-categories li {
+    margin-bottom: 10px;
+}
+.sidebar-categories li:first-child a {
+  background: var(--accent-color);
+  color: #222;
+    font-weight: 600;
+  padding: 10px 16px;
+}
+.sidebar-categories li:first-child a:hover {
+  background: #ffcd45;
+}
+.sidebar-categories li:first-child .sidebar-title {
+  margin-bottom: 0;
+  color: #222;
+  padding-left: 0;
+}
+.sidebar-categories a {
+    color: #fff;
+    text-decoration: none;
+  font-size: 1rem;
+  padding: 8px 0;
+    display: block;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+.sidebar-categories a:hover {
+  background: var(--accent-color);
+  color: #222;
+}
+
+/* Ensure news items fill the entire news block */
+.news-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Стили для блока видео */
+.video-section {
+  margin-top: 60px;
+    width: 100%;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 12px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a202c;
+    margin: 0;
+  text-align: left;
+    position: relative;
+}
+
+.section-title:after {
+  content: none;
+}
+
+.nav-buttons {
+    display: flex;
+  gap: 10px;
+}
+
+.nav-btn {
+    width: 40px;
+    height: 40px;
+  background-color: #f1f5f9;
+  border: none;
+  border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  cursor: pointer;
+    font-size: 18px;
+  color: #64748b;
+  transition: background-color 0.3s, color 0.3s;
+  position: relative;
+  z-index: 10;
+}
+
+.nav-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.nav-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 109, 182, 0.5);
+    }
+    
+.nav-btn:active {
+  transform: translateY(1px);
+    }
+    
+.nav-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+    }
+    
+.nav-btn.disabled:hover {
+  background-color: #f1f5f9;
+  color: #64748b;
+}
+
+/* Новые стили для карусели видео */
+.video-carousel {
+    width: 100%;
+    overflow: hidden;
+        position: relative;
+    }
+    
+.video-track {
+        display: flex;
+  gap: 24px;
+  transition: transform 0.5s ease;
+    }
+    
+.video-item {
+  flex: 0 0 calc((100% - 48px) / 3);
+  max-width: calc((100% - 48px) / 3);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+    }
+    
+.video-thumb {
+  position: relative;
+  display: block;
+        width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 соотношение сторон */
+  overflow: hidden;
+    }
+    
+.video-thumb img {
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+    }
+    
+.video-thumb:hover img {
+  transform: scale(1.05);
+}
+
+.play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background-color: rgba(234, 51, 35, 0.9);
+  border-radius: 50%;
+  z-index: 2;
+  transition: transform 0.3s, background-color 0.3s;
+    }
+    
+.play-btn:after {
+  content: '';
+        position: absolute;
+        top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  border-width: 10px 0 10px 18px;
+  border-color: transparent transparent transparent white;
+    }
+    
+.video-thumb:hover .play-btn {
+  transform: translate(-50%, -50%) scale(1.1);
+  background-color: rgba(234, 51, 35, 1);
+    }
+    
+.video-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a202c;
+  margin: 16px 16px 8px 16px;
+  line-height: 1.4;
+  height: 2.8em;
+        overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+    font-family: 'Open Sans', Arial, sans-serif;
+    }
+    
+.video-date {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0 16px 16px 16px;
+    }
+    
+@media (max-width: 1024px) {
+  .video-item {
+    flex: 0 0 calc((100% - 24px) / 2);
+    max-width: calc((100% - 24px) / 2);
+        }
+    }
+
+@media (max-width: 640px) {
+  .video-item {
+    flex: 0 0 100%;
+        max-width: 100%;
+    }
+  
+  .nav-btn {
+    width: 36px;
+    height: 36px;
+        font-size: 16px;
+    }
+  
+  .section-title {
+    font-size: 20px;
+}
+}
+
+@media (max-width: 1100px) {
+  .news-layout { flex-direction: column; }
+  .news-main, .news-sidebar { width: 100%; max-width: 100%; }
+  .news-sidebar { margin-top: 32px; }
+}
+@media (max-width: 900px) {
+  .news-grid { grid-template-columns: 1fr; }
+  .news-item-large, .news-item-small { 
+    grid-column: auto; 
+    min-height: 300px; 
+}
+  .news-item-large .news-img, .news-item-small .news-img { 
+    height: 100%; 
+    position: absolute; 
+}
+  .news-item .news-content {
+    padding-top: 180px;
+}
+  .news-item-large .news-title, .news-item-small .news-title { 
+    margin-top: auto; 
+    }
+}
