@@ -51,7 +51,7 @@
                 <div class="menu-category">
                     <h3>Поступление</h3>
                     <ul>
-                        <li><a href="applicants">Абитуриентам</a></li>
+                        <li><a href="admissions-applicants">Абитуриентам</a></li>
                         <li><a href="admissions-how">Как подать документы</a></li>
                         <li><a href="#">Необходимые документы</a></li>
                         <li><a href="admissions-questions">Часто задаваемые вопросы</a></li>
