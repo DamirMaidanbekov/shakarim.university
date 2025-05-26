@@ -120,17 +120,18 @@ html, body {
 }
 
 .custom-breadcrumb {
-    width: 100%;
+    width: 80%;
+    max-width: 1500px;
+    margin: 0 auto 0 auto;
     background: #eceff2;
     color: #3a3a3a;
     font-size: 18px;
     padding: 18px 0 18px 48px;
-    margin: 0;
     font-family: 'Open Sans', Arial, sans-serif;
     letter-spacing: 0.01em;
     border-radius: 0 0 0 0;
 }
-.custom-breadcrumb .breadcrumb-separator {
+.breadcrumb-separator {
     color: #b0b0b0;
     margin: 0 8px;
 }
@@ -193,6 +194,7 @@ html, body {
         padding: 24px 8px 24px 8px;
     }
     .custom-breadcrumb {
+        width: 96%;
         padding-left: 16px;
     }
 }
@@ -209,6 +211,8 @@ html, body {
         padding: 18px 4vw 18px 4vw;
     }
     .custom-breadcrumb {
+        width: 100%;
+        max-width: 100%;
         padding-left: 8px;
         font-size: 16px;
     }
@@ -1098,92 +1102,6 @@ html, body {
     transform: translateX(5px);
 }
 
-/* Contact Us Section Styles */
-.contact-us-section {
-    padding: 60px 0;
-    margin-bottom: 40px;
-    background-color: #f8f9fa;
-    border-radius: 15px;
-}
-
-.contact-us-section h2 {
-    font-size: 36px;
-    text-align: center;
-    margin-bottom: 50px;
-    color: #333;
-}
-
-.contact-container {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-
-.contact-info {
-    flex: 1;
-    max-width: 60%;
-    padding-right: 20px;
-    padding-left: 20px;
-}
-
-.contact-info h3 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 30px;
-    color: var(--secondary-color);
-}
-
-.contact-details {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.contact-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-}
-
-.contact-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 18px;
-    flex-shrink: 0;
-}
-
-.contact-text {
-    flex: 1;
-}
-
-.contact-text p {
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 5px;
-    line-height: 1.4;
-}
-
-.contact-note {
-    font-size: 14px;
-    color: #777;
-}
-
-.contact-text a {
-    color: #333;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.contact-text a:hover {
-    color: var(--primary-color);
-}
-
 .contact-socials {
     display: flex;
     gap: 15px;
@@ -1210,17 +1128,6 @@ html, body {
     transform: translateY(-5px);
 }
 
-.contact-illustration {
-    flex: 1;
-    max-width: 40%;
-    padding-right: 20px;
-}
-
-.contact-illustration img {
-    max-width: 100%;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
 
 /* Календарь для абитуриентов (скопировано и адаптировано с главной) */
 .calendar-container {
@@ -1352,8 +1259,7 @@ html, body {
 
 .interesting-section, 
 .apply-steps-section, 
-.popular-questions-section, 
-.contact-us-section {
+.popular-questions-section {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
@@ -1365,16 +1271,14 @@ html, body {
 
 .interesting-section h2, 
 .apply-steps-section h2, 
-.popular-questions-section h2, 
-.contact-us-section h2 {
+.popular-questions-section h2 {
     width: 100%;
     box-sizing: border-box;
 }
 
 .interesting-items,
 .steps-container,
-.questions-container,
-.contact-container {
+.questions-container {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
@@ -1499,19 +1403,3 @@ html, body {
     }
 }
 
-@media (max-width: 768px) {
-    .contact-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .contact-info {
-        max-width: 100%;
-        padding-right: 20px;
-        padding-left: 20px;
-    }
-    
-    .contact-illustration {
-        display: none;
-    }
-}

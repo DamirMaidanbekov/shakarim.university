@@ -18,6 +18,7 @@ footer.site-footer {
     flex: 1 1 0;
     min-width: 180px;
     max-width: none;
+    padding-left: 15px;
 }
 .footer-col h3 {
     font-size: 1.15rem;

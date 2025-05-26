@@ -5,10 +5,21 @@ $page_scripts = '<script src="assets/js/template.js"></script>';
 ob_start();
 ?>
 
-<!-- BREADCRUMB -->
-<div class="custom-breadcrumb">
-    <span>Главная страница</span> <span class="breadcrumb-separator">/</span> <span>template</span>
-        </div>
+<!-- ЗАГОЛОВОК КАТЕГОРИИ -->
+<div class="category-header">
+    <h1 class="category-title">Шаблон</h1>
+</div>
+
+<!-- ХЛЕБНЫЕ КРОШКИ -->
+<div class="breadcrumb-container">
+    <div class="breadcrumb">
+        <a href="/" title="Домашняя страница"><span class="home-icon"></span></a>
+        <span class="breadcrumb-separator">〉</span>
+        <a href="/">Footer</a>
+        <span class="breadcrumb-separator">〉</span>
+        <span class="current">Шаблон</span>
+    </div>
+</div>
         
 <!-- ЦЕНТРАЛЬНЫЙ БЛОК -->
 <div class="content">

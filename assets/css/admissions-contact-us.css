@@ -69,6 +69,10 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--secondary-color);
 }
 
+/* Отступы для основных секций сайта */
+section {
+    padding: 60px 0;
+}
 /* Общее исправление для всех мобильных устройств */
 @media (max-width: 768px) {
     /* Исправление общего контейнера */
@@ -104,6 +108,7 @@ h1, h2, h3, h4, h5, h6 {
         margin: 0 auto;
     }
 }
+
 
 .content {
     width: 80%;
@@ -149,96 +154,127 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Media query for department layout on small screens */
-@media (max-width: 768px) {
-    .department-container {
-        flex-direction: column;
-    }
-    
-    .department-head {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-    
-    .department-info {
-        width: 100%;
-    }
+.contact-us-section {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 60px 0;
+    margin-bottom: 40px;
+    background-color: #f8f9fa;
+    border-radius: 15px;
 }
 
-/* Department container styles */
-.department-container {
+.contact-us-section h2 {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.contact-container {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.contact-info {
+    flex: 1;
+    max-width: 60%;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.contact-info h3 {
+    font-size: 24px;
+    font-weight: 600;
     margin-bottom: 30px;
+    color: var(--secondary-color);
 }
 
-.department-head {
-    width: 35%;
-    background: #f7f9fc;
-    padding: 20px;
-    border-radius: 8px;
-    margin-right: 20px;
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.department-info {
-    width: 65%;
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
 }
 
-/* Staff block styles */
-.staff-block {
-    background: #f7f9fc; 
-    padding: 20px; 
-    border-radius: 8px;
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    flex-shrink: 0;
 }
 
-.staff-grid {
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: space-between;
+.contact-text {
+    flex: 1;
 }
 
-.staff-card {
-    width: 48%; 
-    display: flex; 
-    margin-bottom: 20px;
+.contact-text p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+.contact-text a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-/* Media query with more specific selectors to override inline styles */
+.contact-text a:hover {
+    color: var(--primary-color);
+}
+
+.contact-note {
+    font-size: 14px;
+    color: #777;
+}
+
+.contact-illustration {
+    flex: 1;
+    max-width: 40%;
+    padding-right: 20px;
+}
+
+.contact-illustration img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
 @media (max-width: 768px) {
-    .content .department-container {
-        display: flex;
+    .contact-container {
         flex-direction: column;
+        gap: 20px;
     }
     
-    .content .department-container .department-head {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 20px;
+    .contact-info {
+        max-width: 100%;
+        padding-right: 20px;
+        padding-left: 20px;
     }
     
-    .content .department-container .department-info {
-        width: 100%;
-    }
-    
-    /* Make the staff-block display as a vertical layout */
-    .department-info .info-block,
-    .department-info .staff-block {
-        width: 100%;
-    }
-    
-    .staff-grid {
-        flex-direction: column;
-    }
-    
-    .staff-card {
-        width: 100%;
-    }
-}
-
-/* Media query for smaller screens to ensure employees section goes below */
-@media (max-width: 1024px) {
-    .department-info {
-        display: flex;
-        flex-direction: column;
+    .contact-illustration {
+        display: none;
     }
 }

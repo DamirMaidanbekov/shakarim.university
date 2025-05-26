@@ -29,6 +29,8 @@
     --border-radius: 8px;             /* Скругление углов */
     --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Тень для блоков */
     --transition: all 0.3s ease;      /* Стандартное время перехода анимации */
+    --template-image-bg: #EF4444;     /* Фон для изображений в шаблонах */
+    --template-info-bg: #00427A;      /* Фон для информации в шаблонах */
 }
 
 /* 
@@ -69,6 +71,10 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--secondary-color);
 }
 
+/* Отступы для основных секций сайта */
+section {
+    padding: 60px 0;
+}
 /* Общее исправление для всех мобильных устройств */
 @media (max-width: 768px) {
     /* Исправление общего контейнера */
@@ -129,6 +135,158 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
 }
 
+/* Стили для сетки шаблонов */
+.template-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+}
+
+/* Стили для карточки шаблона */
+.template-card {
+    flex: 0 1 400px;
+    max-width: 400px;
+    min-width: 280px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+.template-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Активный шаблон */
+.template-card.active-template {
+    transform: translateY(-5px);
+    box-shadow: 0 0 0 2px var(--accent-color), 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.template-card.active-template::after {
+    content: '✓';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Секция с изображением */
+.template-image {
+    height: 120px;
+    background-image: url('../../assets/img/template.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Чередование цветов для шаблонов - заменяем на изображение */
+.template-card:nth-child(1) .template-image,
+.template-card:nth-child(2) .template-image,
+.template-card:nth-child(3) .template-image {
+    background-image: url('../../assets/img/template.png');
+}
+
+/* Удаляем текстовую заглушку */
+.template-image::after {
+    display: none;
+}
+
+/* Секция с информацией */
+.template-info {
+    padding: 20px;
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    color: white;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.template-info h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.template-info p {
+    font-size: 16px;
+    margin-bottom: 16px;
+    flex-grow: 1;
+}
+
+/* Кнопка выбора шаблона */
+.template-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.template-button:hover {
+    background-color: #FFD54F;
+}
+
+/* Карточка без изображения */
+.template-card.no-image .template-info {
+    height: 100%;
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 992px) {
+    .template-card {
+        flex: 0 1 45%;
+        max-width: 95vw;
+    }
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .template-card {
+        flex: 0 1 98vw;
+        max-width: 98vw;
+    }
+    .template-grid {
+        gap: 16px;
+    }
+    
+    .content {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 18px 4vw 18px 4vw;
+    }
+}
+
 @media (max-width: 900px) {
     .content {
         width: 96%;
@@ -140,105 +298,8 @@ h1, h2, h3, h4, h5, h6 {
     body {
         background: #f7f9fc !important;
     }
-    .content {
-        width: 100%;
-        max-width: 100%;
-        border-radius: 0;
-        box-shadow: none;
-        padding: 18px 4vw 18px 4vw;
-    }
-}
-
-/* Media query for department layout on small screens */
-@media (max-width: 768px) {
-    .department-container {
-        flex-direction: column;
-    }
     
-    .department-head {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-    
-    .department-info {
-        width: 100%;
-    }
-}
-
-/* Department container styles */
-.department-container {
-    display: flex;
-    margin-bottom: 30px;
-}
-
-.department-head {
-    width: 35%;
-    background: #f7f9fc;
-    padding: 20px;
-    border-radius: 8px;
-    margin-right: 20px;
-}
-
-.department-info {
-    width: 65%;
-}
-
-/* Staff block styles */
-.staff-block {
-    background: #f7f9fc; 
-    padding: 20px; 
-    border-radius: 8px;
-}
-
-.staff-grid {
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: space-between;
-}
-
-.staff-card {
-    width: 48%; 
-    display: flex; 
-    margin-bottom: 20px;
-}
-
-/* Media query with more specific selectors to override inline styles */
-@media (max-width: 768px) {
-    .content .department-container {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .content .department-container .department-head {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-    
-    .content .department-container .department-info {
-        width: 100%;
-    }
-    
-    /* Make the staff-block display as a vertical layout */
-    .department-info .info-block,
-    .department-info .staff-block {
-        width: 100%;
-    }
-    
-    .staff-grid {
-        flex-direction: column;
-    }
-    
-    .staff-card {
-        width: 100%;
-    }
-}
-
-/* Media query for smaller screens to ensure employees section goes below */
-@media (max-width: 1024px) {
-    .department-info {
-        display: flex;
-        flex-direction: column;
+    .template-grid {
+        padding: 0 16px;
     }
 }

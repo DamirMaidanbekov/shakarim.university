@@ -4,13 +4,7 @@ $page_scripts = '<script src="assets/js/applicants.js"></script>';
 
 ob_start();
 ?>
-
-
-<!-- BREADCRUMB -->
-<div class="custom-breadcrumb">
-    <span>Главная страница</span> <span class="breadcrumb-separator">/</span> <span>Абитуриентам</span>
-</div>
-        
+ 
 <!-- ЦЕНТРАЛЬНЫЙ БЛОК -->
 <div class="content">
     <!-- Секция приветствия -->
@@ -684,55 +678,6 @@ ob_start();
                 </div>
                 
                 <a href="#" class="see-all-events">Смотреть все мероприятия <i class="fas fa-long-arrow-alt-right"></i></a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Секция "Свяжитесь с нами" -->
-    <section class="contact-us-section">
-        <h2>Свяжитесь с нами</h2>
-        
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>Приемная комиссия Университета Шакарима</h3>
-                
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="contact-text">
-                            <p>071410, РК, область Абай, г. Семей, ул. Глинки, 20А</p>
-                            <p class="contact-note">Главный корпус, 1 этаж, кабинет 107</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-                        <div class="contact-text">
-                            <p><a href="tel:+77713654625">+7 (771) 365-46-25</a></p>
-                            <p class="contact-note">Приемная комиссия</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div class="contact-text">
-                            <p><a href="mailto:admission@shakarim.kz">admission@shakarim.kz</a></p>
-                            <p class="contact-note">Электронная почта</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
-                        <div class="contact-text">
-                            <p>Пн-Пт: 9:00 - 18:00<br>Сб: 9:00 - 14:00<br>Вс: выходной</p>
-                            <p class="contact-note">Часы работы</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="contact-illustration">
-                <img src="assets/img/applicants6.png" alt="Приемная комиссия" width="500" height="400">
             </div>
         </div>
     </section>

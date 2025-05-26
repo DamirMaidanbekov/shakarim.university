@@ -32,6 +32,8 @@
                 <li><a href="#">Shakarim hub</a></li>
                 <li><a href="template">template</a></li>
                 <li><a href="template-structure">template-structure</a></li>
+                <li><a href="template-empty">template-empty</a></li>
+                <li><a href="template-choice">template-choice</a></li>
             </ul>
         </div>
         <div class="footer-col">

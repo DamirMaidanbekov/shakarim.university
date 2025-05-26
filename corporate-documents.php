@@ -6,9 +6,21 @@ ob_start();
 ?>
 
 <!-- BREADCRUMB -->
-<div class="custom-breadcrumb">
-    <span>Главная страница</span> <span class="breadcrumb-separator">/</span> <span>Корпоративные документы</span>
-        </div>
+<!-- ЗАГОЛОВОК КАТЕГОРИИ -->
+<div class="category-header">
+    <h1 class="category-title">Корпоративные документы</h1>
+</div>
+
+<!-- ХЛЕБНЫЕ КРОШКИ -->
+<div class="breadcrumb-container">
+    <div class="breadcrumb">
+        <a href="/" title="Домашняя страница"><span class="home-icon"></span></a>
+        <span class="breadcrumb-separator">〉</span>
+        <a href="/">Footer</a>
+        <span class="breadcrumb-separator">〉</span>
+        <span class="current">Корпоративные документы</span>
+    </div>
+</div>
         
 <!-- ЦЕНТРАЛЬНЫЙ БЛОК -->
 <div class="content">

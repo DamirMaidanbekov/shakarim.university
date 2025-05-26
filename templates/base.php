@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/breadcrumb.css">
     
     <!-- Стили для каждой страницы наследующий этот шаблон -->
     <?php if (!empty($page_styles)) echo $page_styles; ?>
