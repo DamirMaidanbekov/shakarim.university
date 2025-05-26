@@ -52,9 +52,10 @@
                     <h3>Поступление</h3>
                     <ul>
                         <li><a href="applicants">Абитуриентам</a></li>
-                        <li><a href="#">Как подать документы</a></li>
+                        <li><a href="admissions-how">Как подать документы</a></li>
                         <li><a href="#">Необходимые документы</a></li>
-                        <li><a href="#">Важные даты</a></li>
+                        <li><a href="admissions-questions">Часто задаваемые вопросы</a></li>
+                        <li><a href="admissions-date">Важные даты</a></li>
                         <li><a href="#">Для иностранных студентов</a></li>
                         <li><a href="#">Финансовая помощь и стипендии</a></li>
                         <li><a href="admissions-contact-us">Контакты</a></li>
